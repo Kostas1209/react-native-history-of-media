@@ -12,6 +12,10 @@ const styles = StyleSheet.create ({
     {
         flexDirection: "row"
     },
+    textContainer:
+    {
+        maxWidth:"80%"
+    },
     image:
     {
         maxWidth: "20%", 

@@ -7,7 +7,7 @@ class SomeComponent extends Component {
 
   render() {
     return (
-      <View style={{alignSelf: "center", flexDirection: "column", height: "100%", width: "100%"}}>       
+      <View style={{alignSelf: "center", flexDirection: "column", height: "100%", width: "100%"}}>    
           <Root />
       </View>
     );

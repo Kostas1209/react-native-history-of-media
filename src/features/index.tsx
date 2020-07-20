@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { MainMenu } from './MainMenu/MainMenu';
 import { ChronologyOfInventions } from './ChronologyOfInventions/ChronologyOfInventions';
+import { DetailedInformation } from './DetailedInformation/DetailedInformation';
 
 interface RootProps{
     navigation: any,
@@ -24,6 +25,12 @@ class Root extends React.Component<RootProps>
                             // headerLeft: null 
                         }} />
                         <Stack.Screen name="ChronologyOfInventions" component = {ChronologyOfInventions} options={{ 
+                            cardStyle:{backgroundColor: 'rgb(255, 255, 255)', shadowColor: 'transparent'},
+                            title: 'Хронологія винаходів',
+                            headerShown: true,  
+                            headerStyle: { backgroundColor: 'rgb(150, 75, 0)' },
+                        }} />
+                        <Stack.Screen name="DetailedInformation" component = {DetailedInformation} options={{ 
                             cardStyle:{backgroundColor: 'rgb(255, 255, 255)', shadowColor: 'transparent'},
                             title: 'Хронологія винаходів',
                             headerShown: true,  

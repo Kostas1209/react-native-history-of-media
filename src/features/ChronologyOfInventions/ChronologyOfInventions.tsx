@@ -14,10 +14,7 @@ export class ChronologyOfInventions extends React.Component<ChronologyOfInventio
         return(
             <View style={styles.mainContainer}>
                 <View style={styles.articleContainer}>
-                    <Text>
-                        <Text style={styles.text}>Some Text asfagasdgasdgasgsagsagssf asfdasf asfsafg afasfgsagsagsagsa asfafssaf</Text>
-                        <TouchableOpacity style={{}} onPress={()=>{this.props.navigation.navigate("")}}><Text>Читать далее</Text></TouchableOpacity>
-                    </Text>
+                    <Text style={styles.text}>Some Text asfagasdgasdgasgsagsagssf asfdasf asfsafg afasfgsagsagsagsa asfafssaf<TouchableOpacity style={{position: "relative",borderColor: "#000", borderWidth: 1}} onPress={()=>{this.props.navigation.navigate("DetailedInformation")}}><Text style={{textAlignVertical: "bottom"}}>Читать далее</Text></TouchableOpacity></Text> 
                     <Image source={require("../../../assets/Button.png")}
                         style={styles.image}
                     /> 
