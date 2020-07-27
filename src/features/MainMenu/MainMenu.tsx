@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text} from 'react-native';
+import { View, Text, Button} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import styles from './MainMenuStyles';
 
@@ -13,34 +13,47 @@ export class MainMenu extends React.Component<MainMenuProps>
     render(){
         return(
             <View style={styles.container}>
-                <TouchableOpacity
-                    onPress={()=>{
-                        this.props.navigation.navigate("")
-                    }}    
-                >
-                    <Text style={styles.text}>Основні етапи розвитку</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={()=>{
-                        this.props.navigation.navigate("ChronologyOfInventions")
-                    }}    
-                >
-                    <Text  style={styles.text}>Хронологія винаходів</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={()=>{
-                        this.props.navigation.navigate("")
-                    }}    
-                >
-                    <Text style={styles.text}>Відповіді на запитання гри</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={()=>{
-                        this.props.navigation.navigate("")
-                    }}        
-                >
-                    <Text style={styles.text}>Глосарій з "Історії мультимедіа"</Text>
-                </TouchableOpacity>
+                <Text style={styles.article}>Історія розвитку мультимедіа</Text>
+                <View style={[styles.textContainer, styles.textWithBackground]} >
+                    <TouchableOpacity
+                        onPress={()=>{
+                            this.props.navigation.navigate("")
+                        }}   
+                        style={styles.textOpacityContainer}
+                    >
+                        <Text>Основні етапи розвитку</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.textContainer}>
+                    <TouchableOpacity
+                        onPress={()=>{
+                            this.props.navigation.navigate("ChronologyOfInventions")
+                        }}    
+                        style={styles.textOpacityContainer}
+                    >
+                        <Text>Хронологія винаходів</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={[styles.textContainer, styles.textWithBackground]}>
+                    <TouchableOpacity
+                        onPress={()=>{
+                            this.props.navigation.navigate("")
+                        }}    
+                        style={styles.textOpacityContainer}
+                    > 
+                        <Text>Відповіді на запитання гри</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.textContainer}>
+                    <TouchableOpacity
+                        onPress={()=>{
+                            this.props.navigation.navigate("")
+                        }}       
+                        style={styles.textOpacityContainer} 
+                    >
+                        <Text>Глосарій з "Історії мультимедіа"</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         )
     }

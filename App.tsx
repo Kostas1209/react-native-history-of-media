@@ -1,14 +1,18 @@
 import 'react-native-gesture-handler';
 import React, {Component} from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 import Root from './src/features';
+import { NavigationContainer } from '@react-navigation/native';
  
-class SomeComponent extends Component {
+
+class SomeComponent extends Component<{navigation : any}> {
 
   render() {
     return (
-      <View style={{alignSelf: "center", flexDirection: "column", height: "100%", width: "100%"}}>    
+      <View style={{height: "100%", width: "100%"}}>
+        <NavigationContainer>  
           <Root />
+        </NavigationContainer>
       </View>
     );
   }

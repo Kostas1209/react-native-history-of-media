@@ -15,12 +15,12 @@ class Root extends React.Component<RootProps>
     render(){
         const Stack = createStackNavigator();
         return(
-                <NavigationContainer>
+                
                     <Stack.Navigator initialRouteName={"MainMenu"}>
                         <Stack.Screen name="MainMenu" component = {MainMenu} options={{ 
-                            cardStyle:{backgroundColor: 'rgb(255, 255, 255)', shadowColor: 'transparent'},
+                            cardStyle:{backgroundColor: 'rgb(150, 75, 0)', shadowColor: 'transparent'},
                             title: '',
-                            headerShown: true,  
+                            headerShown: false,  
                             headerStyle: { backgroundColor: 'rgb(150, 75, 0)' }
                             // headerLeft: null 
                         }} />
@@ -37,7 +37,6 @@ class Root extends React.Component<RootProps>
                             headerStyle: { backgroundColor: 'rgb(150, 75, 0)' },
                         }} />
                     </Stack.Navigator>
-                </NavigationContainer>
         )
     }
     
