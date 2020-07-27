@@ -1,20 +1,32 @@
 import * as React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer } from '@react-navigation/native';
 import { MainMenu } from './MainMenu/MainMenu';
 import { ChronologyOfInventions } from './ChronologyOfInventions/ChronologyOfInventions';
 import { DetailedInformation } from './DetailedInformation/DetailedInformation';
 import { Profile } from './Profile/Profile';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { Dimensions } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 interface RootProps{
     navigation: any,
     isUserInit: boolean
 }
 
+const {height , width} = Dimensions.get("screen");
+
+function headerLeft(navigation)
+{
+    console.log(arguments[0]);
+    return(
+        <Icon style={{marginLeft: 10}} onPress={()=> navigation.navigate("DetailedInformation")} size={height * 0.05} name="hamburger"/>
+    )
+}
+
 class Root extends React.Component<RootProps>
 { 
     render(){
-        const Stack = createStackNavigator();
+        const Stack = createStackNavigator()
         return(
                 
                     <Stack.Navigator initialRouteName={"MainMenu"}>
@@ -25,10 +37,14 @@ class Root extends React.Component<RootProps>
                             headerStyle: { backgroundColor: 'rgb(150, 75, 0)' }
                             // headerLeft: null 
                         }} />
-                        <Stack.Screen name="ChronologyOfInventions" component = {ChronologyOfInventions} options={{ 
+                        <Stack.Screen name="ChronologyOfInventions" component = {ChronologyOfInventions} 
+                        options={{ 
                             cardStyle:{backgroundColor: 'rgb(255, 255, 255)', shadowColor: 'transparent'},
                             title: 'Хронологія винаходів',
-                            headerShown: true,  
+                            headerShown: true,
+                            // headerLeftContainerStyle: {left: -100},
+                            // headerLeft: (headerLeft),
+                            header: (headerLeft),
                             headerStyle: { backgroundColor: 'rgb(150, 75, 0)' },
                         }} />
                         <Stack.Screen name="DetailedInformation" component = {DetailedInformation} options={{ 
