@@ -17,7 +17,7 @@ class Root extends React.Component<RootProps>
         const Stack = createStackNavigator();
         return(
                 
-                    <Stack.Navigator initialRouteName={"Profile"}>
+                    <Stack.Navigator initialRouteName={"MainMenu"}>
                         <Stack.Screen name="MainMenu" component = {MainMenu} options={{ 
                             cardStyle:{backgroundColor: 'rgb(150, 75, 0)', shadowColor: 'transparent'},
                             title: '',
