@@ -4,9 +4,8 @@ import { MainMenu } from './MainMenu/MainMenu';
 import { ChronologyOfInventions } from './ChronologyOfInventions/ChronologyOfInventions';
 import { DetailedInformation } from './DetailedInformation/DetailedInformation';
 import { Profile } from './Profile/Profile';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Dimensions } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import Header from '../shared/HeaderComponent';
 
 interface RootProps{
     navigation: any,
@@ -15,13 +14,6 @@ interface RootProps{
 
 const {height , width} = Dimensions.get("screen");
 
-function headerLeft(navigation)
-{
-    console.log(arguments[0]);
-    return(
-        <Icon style={{marginLeft: 10}} onPress={()=> navigation.navigate("DetailedInformation")} size={height * 0.05} name="hamburger"/>
-    )
-}
 
 class Root extends React.Component<RootProps>
 { 
@@ -44,7 +36,7 @@ class Root extends React.Component<RootProps>
                             headerShown: true,
                             // headerLeftContainerStyle: {left: -100},
                             // headerLeft: (headerLeft),
-                            header: (headerLeft),
+                            header: (props)=><Header {...props}/>,
                             headerStyle: { backgroundColor: 'rgb(150, 75, 0)' },
                         }} />
                         <Stack.Screen name="DetailedInformation" component = {DetailedInformation} options={{ 
