@@ -9,6 +9,7 @@ import Header from '../shared/HeaderComponent';
 import Galery from './Galery/Galery';
 import SingleImage from './SingleImage/SingleImage';
 import {colors} from '../shared/config';
+import SplashScreen from '../features/SplashScreen/SplashScreen';
 
 interface RootProps {
   navigation: any;
@@ -21,7 +22,7 @@ class Root extends React.Component<RootProps> {
   render() {
     const Stack = createStackNavigator();
     return (
-      <Stack.Navigator initialRouteName={'Menu'}>
+      <Stack.Navigator initialRouteName={'SplashScreen'}>
         <Stack.Screen
           name="MainMenu"
           component={MainMenu}
@@ -32,8 +33,6 @@ class Root extends React.Component<RootProps> {
             },
             title: '',
             headerShown: false,
-            headerStyle: {backgroundColor: colors.backgroundColor},
-            // headerLeft: null
           }}
         />
         <Stack.Screen
@@ -108,13 +107,21 @@ class Root extends React.Component<RootProps> {
             // headerLeft: null
           }}
         />
+        <Stack.Screen
+          name="SplashScreen"
+          component={SplashScreen}
+          options={{
+            cardStyle: {
+              backgroundColor: colors.backgroundColor,
+              shadowColor: 'transparent',
+            },
+            title: '',
+            headerShown: false,
+          }}
+        />
       </Stack.Navigator>
     );
   }
 }
-
-// const mapStateToProps = (state: RootState) => ({
-//     isUserInit : state.user.userCreate
-//   })
 
 export default Root;

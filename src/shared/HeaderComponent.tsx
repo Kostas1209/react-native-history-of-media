@@ -29,23 +29,33 @@ function HeaderComponent(props: HeaderProps) {
         flexDirection: 'row',
         backgroundColor: colors.backgroundColor,
         height: height * 0.08,
+        zIndex: 100,
       }}>
       <Icon
-        style={{marginLeft: 10, alignSelf: 'center'}}
+        style={{marginLeft: 10, alignSelf: 'center', color: '#fff'}}
         onPress={() => setIsPickerOpen(!isPickerOpen)}
-        size={height * 0.03}
-        name="hamburger"
+        size={height * 0.04}
+        name="menu"
       />
-      <Text style={{marginLeft: 10, alignSelf: 'center'}}>
+      <Text
+        style={{
+          marginLeft: 10,
+          alignSelf: 'center',
+          color: '#fff',
+          fontSize: height * 0.03,
+        }}>
         {props.scene.descriptor.options.title}
       </Text>
       {isPickerOpen === true ? (
         <View
           style={{
-            borderWidth: 1,
             backgroundColor: Colors.white,
             position: 'absolute',
-            left: '15%',
+            marginTop: 5,
+            left: '13%',
+            shadowRadius: 10,
+            shadowOpacity: 0.5,
+            shadowColor: '#000',
           }}>
           <TouchableOpacity
             onPress={() => props.navigation.navigate('MainMenu')}

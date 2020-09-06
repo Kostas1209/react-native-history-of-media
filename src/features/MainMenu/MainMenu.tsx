@@ -1,61 +1,44 @@
 import * as React from 'react';
-import { View, Text, Button} from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
 import styles from './MainMenuStyles';
+import images from '../../data/images';
 
-interface MainMenuProps
-{
-    navigation: any
+interface MainMenuProps {
+  navigation: {
+    navigate: (path: string) => void;
+  };
 }
 
-export class MainMenu extends React.Component<MainMenuProps>
-{ 
-    render(){
-        return(
-            <View style={styles.container}>
-                <Text style={styles.article}>Історія розвитку мультимедіа</Text>
-                <View style={[styles.textContainer, styles.textWithBackground]} >
-                    <TouchableOpacity
-                        onPress={()=>{
-                            this.props.navigation.navigate("")
-                        }}   
-                        style={styles.textOpacityContainer}
-                    >
-                        <Text>Основні етапи розвитку</Text>
-                    </TouchableOpacity>
-                </View>
-                <View style={styles.textContainer}>
-                    <TouchableOpacity
-                        onPress={()=>{
-                            this.props.navigation.navigate("ChronologyOfInventions")
-                        }}    
-                        style={styles.textOpacityContainer}
-                    >
-                        <Text>Хронологія винаходів</Text>
-                    </TouchableOpacity>
-                </View>
-                <View style={[styles.textContainer, styles.textWithBackground]}>
-                    <TouchableOpacity
-                        onPress={()=>{
-                            this.props.navigation.navigate("")
-                        }}    
-                        style={styles.textOpacityContainer}
-                    > 
-                        <Text>Відповіді на запитання гри</Text>
-                    </TouchableOpacity>
-                </View>
-                <View style={styles.textContainer}>
-                    <TouchableOpacity
-                        onPress={()=>{
-                            this.props.navigation.navigate("")
-                        }}       
-                        style={styles.textOpacityContainer} 
-                    >
-                        <Text>Глосарій з "Історії мультимедіа"</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
-        )
-    }
-    
-}
+export const MainMenu = (props: MainMenuProps) => {
+  const renderButton = (path: string, text: string, isMarked: boolean) => {
+    const style = isMarked
+      ? [styles.textContainer, styles.textWithBackground]
+      : styles.textContainer;
+
+    const textStyle = isMarked ? {color: '#fff'} : {color: '#000'};
+
+    const onPress = () => {
+      props.navigation.navigate(path);
+    };
+
+    return (
+      <TouchableOpacity onPress={onPress} style={style}>
+        <Text style={[textStyle, styles.text]}>{text}</Text>
+      </TouchableOpacity>
+    );
+  };
+
+  return (
+    <View style={styles.container}>
+      <Image
+        style={{resizeMode: 'contain', maxHeight: '40%'}}
+        source={images.mainMenu}
+      />
+      <Text style={styles.article}>Історія розвитку мультимедіа</Text>
+      {renderButton('', 'Основні етапи розвитку', true)}
+      {renderButton('ChronologyOfInventions', 'Хронологія винаходів', false)}
+      {renderButton('', 'Відповіді на запитання гри', true)}
+      {renderButton('', 'Глосарій з "Історії мультимедіа"', false)}
+    </View>
+  );
+};

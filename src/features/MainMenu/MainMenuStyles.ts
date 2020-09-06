@@ -1,34 +1,37 @@
-import { StyleSheet, Dimensions } from 'react-native'
+import {StyleSheet, Dimensions} from 'react-native';
+import {colors} from '../../shared/config';
 
-const {width, height } = Dimensions.get("screen")
+const {width, height} = Dimensions.get('screen');
 
-const styles = StyleSheet.create ({
-    textContainer:{
-        width: "100%",
-        paddingBottom: 5,
-        paddingTop: 5,
-    },
-    textWithBackground :
-    {
-        backgroundColor: "rgb(150, 75, 0)"
-    },
-    textOpacityContainer:{
-        left: "20%"
-    },
-    container :
-    {
-        width: "100%",
-        height: "84%",
-        backgroundColor: "#fff",
-        alignItems: "center",
-        top: "8%"
-    },
-    article:{
-        fontSize: 23,
-        fontWeight: "700",
-        marginBottom: "10%",
-        marginTop: "5%"
-    }
-})
+const styles = StyleSheet.create({
+  textContainer: {
+    width: width,
+    height: 40,
+    justifyContent: 'center',
+  },
+  textWithBackground: {
+    backgroundColor: colors.backgroundColor,
+  },
+  textOpacityContainer: {
+    left: '20%',
+    height: 30,
+  },
+  container: {
+    width: '100%',
+    height: '84%',
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    top: '8%',
+  },
+  article: {
+    fontSize: 23,
+    fontWeight: '700',
+    marginBottom: '10%',
+    marginTop: '5%',
+  },
+  text: {
+    left: '20%',
+  },
+});
 
-export default styles
+export default styles;

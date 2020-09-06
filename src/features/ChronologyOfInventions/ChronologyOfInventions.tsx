@@ -15,9 +15,8 @@ const ChoronologyOfInventions = (props: ChronologyOfInventionsProps) => {
   };
 
   const renderInvention = (inventionData: Article, index: number) => {
-    console.log(inventionData);
     return (
-      <View>
+      <View key={index}>
         <View style={styles.articleContainer}>
           <Text style={styles.text}>
             {inventionData.breiflyContent}
