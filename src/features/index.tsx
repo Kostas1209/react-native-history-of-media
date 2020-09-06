@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {MainMenu} from './MainMenu/MainMenu';
-import {ChronologyOfInventions} from './ChronologyOfInventions/ChronologyOfInventions';
-import {DetailedInformation} from './DetailedInformation/DetailedInformation';
+import ChronologyOfInventions from './ChronologyOfInventions/ChronologyOfInventions';
+import DetailedInformation from './DetailedInformation/DetailedInformation';
 import {Profile} from './Profile/Profile';
 import {Dimensions} from 'react-native';
 import Header from '../shared/HeaderComponent';
@@ -21,7 +21,7 @@ class Root extends React.Component<RootProps> {
   render() {
     const Stack = createStackNavigator();
     return (
-      <Stack.Navigator initialRouteName={'Galery'}>
+      <Stack.Navigator initialRouteName={'Menu'}>
         <Stack.Screen
           name="MainMenu"
           component={MainMenu}
@@ -46,8 +46,8 @@ class Root extends React.Component<RootProps> {
             },
             title: 'Хронологія винаходів',
             headerShown: true,
-            // headerLeftContainerStyle: {left: -100},
-            // headerLeft: (headerLeft),
+            headerLeftContainerStyle: {left: -100},
+            // headerLeft: headerLeft,
             header: (props) => <Header {...props} />,
             headerStyle: {backgroundColor: colors.backgroundColor},
           }}
@@ -60,8 +60,7 @@ class Root extends React.Component<RootProps> {
               backgroundColor: 'rgb(255, 255, 255)',
               shadowColor: 'transparent',
             },
-            title: 'Хронологія винаходів',
-            headerShown: true,
+            headerShown: false,
             headerStyle: {backgroundColor: colors.backgroundColor},
           }}
         />
