@@ -8,9 +8,11 @@ export class DetailedInformation extends React.Component
     {
         return (
             <View>
-                <Image source={require("../../../assets/Button.png")}
-                        style={styles.image}
-                /> 
+                <View style={{width: "100%", height: "30%"}}>
+                    <Image source={require("../../../assets/Button.png")}
+                            style={styles.image}
+                    /> 
+                </View>
                 <Text>blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablabla
                 blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablabla
                 blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablabla
