@@ -1,5 +1,6 @@
 import * as React from 'react';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import {Dimensions, View, Text, StyleSheet} from 'react-native';
 import {withNavigation} from 'react-navigation';
 import {TouchableOpacity} from 'react-native-gesture-handler';
@@ -7,6 +8,7 @@ import {Colors} from 'react-native-paper';
 import {config, colors} from '../shared/config';
 
 const {height, width} = Dimensions.get('screen');
+const aspectRation = height / width;
 
 export interface HeaderProps {
   navigation: {
@@ -22,73 +24,117 @@ export interface HeaderProps {
 }
 
 function HeaderComponent(props: HeaderProps) {
-  const [isPickerOpen, setIsPickerOpen] = React.useState(false);
+  const [isLeftMenuOpen, setIsLeftMenuOpen] = React.useState(false);
+  const [isRightMenuOpen, setIsRightMenuOpen] = React.useState(false);
+
+  const renderLeftMenu = () => {
+    return (
+      <View
+        style={{
+          elevation: 100,
+          backgroundColor: Colors.white,
+          position: 'absolute',
+          marginTop: 5,
+          left: '13%',
+          borderRadius: 2,
+          padding: 5,
+        }}>
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate('MainMenu')}
+          style={styles.navigateButton}>
+          <Text>Основні єтапи розвитку </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate('ChronologyOfInventions')}
+          style={styles.navigateButton}>
+          <Text>Хронологія винаходів</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate('Profile')}
+          style={styles.navigateButton}>
+          <Text>Відповіді на запитання</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate('Galery')}
+          style={styles.navigateButton}>
+          <Text>Глосарій</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  };
+
+  const renderRightMenu = () => {
+    return (
+      <View
+        style={{
+          elevation: 100,
+          backgroundColor: Colors.white,
+          position: 'absolute',
+          marginTop: 10,
+          left: '40%',
+          borderRadius: 2,
+          padding: 5,
+        }}>
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate('Profile')}
+          style={styles.navigateButton}>
+          <Text>Сторінка розробника</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate('Galery')}
+          style={styles.navigateButton}>
+          <Text>Галерея</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  };
+
   return (
     <View
       style={{
+        zIndex: 100,
         flexDirection: 'row',
         backgroundColor: colors.backgroundColor,
         height: height * 0.08,
-        zIndex: 100,
       }}>
-      <Icon
+      <MaterialCommunityIcon
         style={{marginLeft: 10, alignSelf: 'center', color: '#fff'}}
-        onPress={() => setIsPickerOpen(!isPickerOpen)}
-        size={height * 0.04}
+        onPress={() => {
+          setIsRightMenuOpen(false);
+          setIsLeftMenuOpen(!isLeftMenuOpen);
+        }}
+        size={aspectRation * 14}
         name="menu"
+      />
+      <MaterialIcon
+        style={{left: width - 70, alignSelf: 'center', color: '#fff'}}
+        onPress={() => {
+          setIsLeftMenuOpen(false);
+          setIsRightMenuOpen(!isRightMenuOpen);
+        }}
+        size={aspectRation * 14}
+        name="more-vert"
       />
       <Text
         style={{
           marginLeft: 10,
           alignSelf: 'center',
           color: '#fff',
-          fontSize: height * 0.03,
+          fontSize: aspectRation * 10,
         }}>
         {props.scene.descriptor.options.title}
       </Text>
-      {isPickerOpen === true ? (
-        <View
-          style={{
-            backgroundColor: Colors.white,
-            position: 'absolute',
-            marginTop: 5,
-            left: '13%',
-            shadowRadius: 10,
-            shadowOpacity: 0.5,
-            shadowColor: '#000',
-          }}>
-          <TouchableOpacity
-            onPress={() => props.navigation.navigate('MainMenu')}
-            style={styles.navigateButton}>
-            <Text>Main Menu</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => props.navigation.navigate('ChronologyOfInventions')}
-            style={styles.navigateButton}>
-            <Text>Chronology of inventions</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => props.navigation.navigate('Profile')}
-            style={styles.navigateButton}>
-            <Text>Profile</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => props.navigation.navigate('Galery')}
-            style={styles.navigateButton}>
-            <Text>Galery</Text>
-          </TouchableOpacity>
-        </View>
-      ) : null}
+      {isLeftMenuOpen === true ? renderLeftMenu() : undefined}
+      {isRightMenuOpen === true ? renderRightMenu() : undefined}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   navigateButton: {
-    paddingBottom: 5,
-    paddingTop: 5,
     margin: 2,
     borderRadius: 10,
+    padding: 10,
   },
 });
 

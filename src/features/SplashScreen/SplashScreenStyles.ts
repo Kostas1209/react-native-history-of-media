@@ -1,6 +1,7 @@
 import {Dimensions, StyleSheet} from 'react-native';
 
-const {height} = Dimensions.get('screen');
+const {height, width} = Dimensions.get('screen');
+const aspectRation = height / width;
 
 export default StyleSheet.create({
   image: {
@@ -15,6 +16,6 @@ export default StyleSheet.create({
   text: {
     color: '#fff',
     alignSelf: 'center',
-    fontSize: height * 0.035,
+    fontSize: aspectRation * 10,
   },
 });

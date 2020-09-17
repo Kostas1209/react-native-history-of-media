@@ -1,11 +1,13 @@
 import {StyleSheet, Dimensions} from 'react-native';
 
-const {height} = Dimensions.get('screen');
+const {height, width} = Dimensions.get('screen');
+const aspectReation = height / width;
+
 
 const styles = StyleSheet.create({
   text: {
     maxWidth: '60%',
-    fontSize: height * 0.021,
+    fontSize: aspectReation * 7,
   },
   mainContainer: {
     flexDirection: 'column',

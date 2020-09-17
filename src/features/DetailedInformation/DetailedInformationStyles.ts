@@ -1,4 +1,7 @@
-import { StyleSheet } from "react-native"
+import { StyleSheet, Dimensions } from "react-native"
+
+const {height, width} = Dimensions.get("screen");
+const aspectRation = height / width;
 
 const styles = StyleSheet.create ({
     image:{
@@ -6,6 +9,13 @@ const styles = StyleSheet.create ({
         maxWidth: "100%",
         alignSelf: "center",
         resizeMode: "contain",
+    },
+    imageContainer : {
+        width: '100%', 
+        height: '50%'
+    },
+    text: {
+        fontSize: aspectRation * 10
     }
 })
 
