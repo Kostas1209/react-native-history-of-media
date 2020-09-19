@@ -1,41 +1,66 @@
 import * as React from 'react';
 import {View, Image, Text, Dimensions} from 'react-native';
 import {Colors, Button} from 'react-native-paper';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import LinearGradient from 'react-native-linear-gradient';
+import styles from './styles';
 
 const {width, height} = Dimensions.get('screen');
+const aspectRation = height / width;
 
-export class Profile extends React.Component {
-  render() {
-    return (
-      <View style={{flex: 0.92, backgroundColor: Colors.white, width: '100%'}}>
-        <Image
-          style={{alignSelf: 'center', resizeMode: 'contain', maxHeight: '50%'}}
-          source={require('../../../assets/profilePhoto.png')}
-        />
-        <View style={{marginTop: height * 0.01, flex: 0.6, left: '20%'}}>
-          <Text>Криволмлинова Ельміра Олександрівна</Text>
-          <Text>23 роки</Text>
-          <Text>Студентка ХНЕУ ім. С. Кузнеця</Text>
-          <Text>Факультет: Економічної інформатики</Text>
-          <Text>Спеціальності 186 Видавництво та поліграфія</Text>
-        </View>
-        <View style={{flex: 0.2, width: '100%', marginTop: height * 0.02}}>
-          <View
-            style={{
-              left: '20%',
-              width: '80%',
-              borderWidth: 1,
-            }}></View>
-          <Text style={{left: '20%', marginTop: height * 0.02}}>
-            el.krivomlinova1997@gmail.com
-          </Text>
-          <Text style={{left: '20%', marginTop: height * 0.02}}>
-            0967000143
-          </Text>
-          <Text style={{left: '20%', marginTop: height * 0.02}}>onlywe_on</Text>
-        </View>
-      </View>
-    );
-  }
+interface ProfileProps {
+  navigation: {
+    navigate: (route: string) => void;
+    goBack: () => void;
+  };
 }
+
+const Profile = (props: ProfileProps) => {
+  const renderBackButton = () => {
+    return (
+      <MaterialIcon
+        style={styles.backButton}
+        onPress={() => {
+          props.navigation.goBack();
+        }}
+        size={aspectRation * 20}
+        name="arrow-back"
+      />
+    );
+  };
+
+  const renderDevider = () => {
+    return <View style={styles.devider} />;
+  };
+
+  return (
+    <LinearGradient
+      colors={['rgb(137,137,137)', '#fff']}
+      start={{x: 0, y: 0}}
+      end={{x: 0, y: 0.2}}
+      style={styles.mainContainerGradient}>
+      {renderBackButton()}
+      <Image
+        style={styles.photo}
+        source={require('../../../assets/profilePhoto.png')}
+      />
+      <View style={styles.infoContainer}>
+        <Text style={styles.infoText}>Криволмлинова Ельміра Олександрівна</Text>
+        <Text style={styles.infoText}>23 роки</Text>
+        <Text style={styles.infoText}>Студентка ХНЕУ ім. С. Кузнеця</Text>
+        <Text style={styles.infoText}>Факультет: Економічної інформатики</Text>
+        <Text style={styles.infoText}>
+          Спеціальності 186 Видавництво та поліграфія
+        </Text>
+      </View>
+      <View style={styles.socialInfoContainer}>
+        {renderDevider()}
+        <Text style={styles.socialInfoText}>el.krivomlinova1997@gmail.com</Text>
+        <Text style={styles.socialInfoText}>0967000143</Text>
+        <Text style={styles.socialInfoText}>onlywe_on</Text>
+      </View>
+    </LinearGradient>
+  );
+};
+
+export default Profile;

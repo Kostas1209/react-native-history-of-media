@@ -3,7 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {MainMenu} from './MainMenu/MainMenu';
 import ChronologyOfInventions from './ChronologyOfInventions/ChronologyOfInventions';
 import DetailedInformation from './DetailedInformation/DetailedInformation';
-import {Profile} from './Profile/Profile';
+import Profile from './Profile/Profile';
 import {Dimensions} from 'react-native';
 import Header from '../shared/HeaderComponent';
 import Galery from './Galery/Galery';

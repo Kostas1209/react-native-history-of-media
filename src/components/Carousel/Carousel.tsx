@@ -29,6 +29,7 @@ const CarouseComponent = (props: CarouselProps) => {
           width: '200%',
           height: '100%',
         }}
+        scrollEnabled={props.article.article.length > 1}
         showsHorizontalScrollIndicator={false}
         pagingEnabled={true}
         horizontal={true}>
