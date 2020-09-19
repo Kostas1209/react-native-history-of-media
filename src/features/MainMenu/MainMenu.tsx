@@ -18,7 +18,6 @@ export const MainMenu = (props: MainMenuProps) => {
     const textStyle = isMarked ? {color: '#fff'} : {color: '#000'};
 
     const onPress = () => {
-      console.log('tests');
       props.navigation.navigate(path);
     };
 

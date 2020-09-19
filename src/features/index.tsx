@@ -45,8 +45,6 @@ class Root extends React.Component<RootProps> {
             },
             title: 'Хронологія винаходів',
             headerShown: true,
-            headerLeftContainerStyle: {left: -100},
-            // headerLeft: headerLeft,
             header: (props) => <Header {...props} />,
             headerStyle: {backgroundColor: colors.backgroundColor},
           }}

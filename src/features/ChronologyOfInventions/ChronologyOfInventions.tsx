@@ -1,9 +1,10 @@
 import * as React from 'react';
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, DeviceEventEmitter} from 'react-native';
 import styles from './ChronologyOfInventionsStyles';
 import {Colors} from 'react-native-paper';
 import {Article, articles} from '../../data/articles';
 import images from '../../data/images';
+import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 
 interface ChronologyOfInventionsProps {
   navigation: any;
@@ -41,11 +42,15 @@ const ChoronologyOfInventions = (props: ChronologyOfInventionsProps) => {
   };
 
   return (
-    <View style={styles.mainContainer}>
+    <TouchableWithoutFeedback
+      style={styles.mainContainer}
+      onPress={() => {
+        DeviceEventEmitter.emit('touchEmitter');
+      }}>
       {articles.map((articleData, index) =>
         renderInvention(articleData, index),
       )}
-    </View>
+    </TouchableWithoutFeedback>
   );
 };
 

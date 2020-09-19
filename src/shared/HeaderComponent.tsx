@@ -1,7 +1,13 @@
 import * as React from 'react';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
-import {Dimensions, View, Text, StyleSheet} from 'react-native';
+import {
+  Dimensions,
+  View,
+  Text,
+  StyleSheet,
+  DeviceEventEmitter,
+} from 'react-native';
 import {withNavigation} from 'react-navigation';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Colors} from 'react-native-paper';
@@ -18,6 +24,7 @@ export interface HeaderProps {
     descriptor: {
       options: {
         title?: string;
+        isBackButton?: boolean;
       };
     };
   };
@@ -26,6 +33,21 @@ export interface HeaderProps {
 function HeaderComponent(props: HeaderProps) {
   const [isLeftMenuOpen, setIsLeftMenuOpen] = React.useState(false);
   const [isRightMenuOpen, setIsRightMenuOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    DeviceEventEmitter.addListener('touchEmitter', closeAllMenu);
+
+    return () => {
+      DeviceEventEmitter.removeListener('touchEmitter', closeAllMenu);
+    };
+  }, []);
+
+  const closeAllMenu = () => {
+    setIsLeftMenuOpen(false);
+    setIsRightMenuOpen(false);
+  };
+
+  const {isBackButton, title} = props.scene.descriptor.options;
 
   const renderLeftMenu = () => {
     return (
@@ -40,7 +62,7 @@ function HeaderComponent(props: HeaderProps) {
           padding: 5,
         }}>
         <TouchableOpacity
-          onPress={() => props.navigation.navigate('MainMenu')}
+          onPress={() => props.navigation.navigate('')}
           style={styles.navigateButton}>
           <Text>Основні єтапи розвитку </Text>
         </TouchableOpacity>
@@ -50,12 +72,12 @@ function HeaderComponent(props: HeaderProps) {
           <Text>Хронологія винаходів</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => props.navigation.navigate('Profile')}
+          onPress={() => props.navigation.navigate('')}
           style={styles.navigateButton}>
           <Text>Відповіді на запитання</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => props.navigation.navigate('Galery')}
+          onPress={() => props.navigation.navigate('')}
           style={styles.navigateButton}>
           <Text>Глосарій</Text>
         </TouchableOpacity>
@@ -89,14 +111,8 @@ function HeaderComponent(props: HeaderProps) {
     );
   };
 
-  return (
-    <View
-      style={{
-        zIndex: 100,
-        flexDirection: 'row',
-        backgroundColor: colors.backgroundColor,
-        height: height * 0.08,
-      }}>
+  const renderMenuIcon = () => {
+    return (
       <MaterialCommunityIcon
         style={{marginLeft: 10, alignSelf: 'center', color: '#fff'}}
         onPress={() => {
@@ -106,6 +122,11 @@ function HeaderComponent(props: HeaderProps) {
         size={aspectRation * 14}
         name="menu"
       />
+    );
+  };
+
+  const renderMoreIcon = () => {
+    return (
       <MaterialIcon
         style={{left: width - 70, alignSelf: 'center', color: '#fff'}}
         onPress={() => {
@@ -115,6 +136,35 @@ function HeaderComponent(props: HeaderProps) {
         size={aspectRation * 14}
         name="more-vert"
       />
+    );
+  };
+
+  const renderBackButton = () => {
+    return (
+      <MaterialIcon
+        style={{left: width - 70, alignSelf: 'center', color: '#fff'}}
+        onPress={() => {
+          setIsLeftMenuOpen(false);
+          props.navigation.navigate('ChronologyOfInventions');
+        }}
+        size={aspectRation * 14}
+        name="arrow-back"
+      />
+    );
+  };
+
+  return (
+    <View
+      style={{
+        zIndex: 100,
+        flexDirection: 'row',
+        backgroundColor: colors.backgroundColor,
+        height: height * 0.08,
+      }}>
+      {renderMenuIcon()}
+      {isBackButton && isBackButton == true
+        ? renderBackButton()
+        : renderMoreIcon()}
       <Text
         style={{
           marginLeft: 10,
@@ -122,7 +172,7 @@ function HeaderComponent(props: HeaderProps) {
           color: '#fff',
           fontSize: aspectRation * 10,
         }}>
-        {props.scene.descriptor.options.title}
+        {title}
       </Text>
       {isLeftMenuOpen === true ? renderLeftMenu() : undefined}
       {isRightMenuOpen === true ? renderRightMenu() : undefined}
@@ -138,4 +188,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withNavigation(HeaderComponent);
+export default HeaderComponent;

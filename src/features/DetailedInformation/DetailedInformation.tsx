@@ -25,6 +25,7 @@ const DetailedInformation = (props: DetailedInformationProps) => {
       descriptor: {
         options: {
           title: inventionData.title,
+          isBackButton: true,
         },
       },
     },
