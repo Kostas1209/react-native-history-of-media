@@ -1,11 +1,16 @@
-import { StyleSheet } from "react-native";
+import {StyleSheet} from 'react-native';
 
 const galeryStyles = StyleSheet.create({
-    image : {
-        marginTop : 10,
-        marginLeft: 1,
-        marginRight: 1
-    }
-})
+  image: {
+    marginTop: 10,
+    maxWidth: 100,
+    maxHeight: 100,
+    resizeMode: 'contain',
+  },
+  imageContainer: {
+    height: 100,
+    width: 100,
+  },
+});
 
-export default galeryStyles
+export default galeryStyles;

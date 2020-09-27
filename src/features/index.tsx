@@ -94,10 +94,6 @@ class Root extends React.Component<RootProps> {
           name="SingleImage"
           component={SingleImage}
           options={{
-            cardStyle: {
-              backgroundColor: colors.backgroundColor,
-              shadowColor: 'transparent',
-            },
             title: '',
             headerShown: false,
             //headerStyle: { backgroundColor: colors.backgroundColor },

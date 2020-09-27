@@ -39,6 +39,7 @@ export const MainMenu = (props: MainMenuProps) => {
       {renderButton('ChronologyOfInventions', 'Хронологія винаходів', false)}
       {renderButton('', 'Відповіді на запитання гри', true)}
       {renderButton('', 'Глосарій з "Історії мультимедіа"', false)}
+      {renderButton('Galery', 'Галерея', true)}
     </View>
   );
 };

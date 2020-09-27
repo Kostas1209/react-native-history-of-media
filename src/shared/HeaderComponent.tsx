@@ -7,11 +7,13 @@ import {
   Text,
   StyleSheet,
   DeviceEventEmitter,
+  BackHandler,
 } from 'react-native';
 import {withNavigation} from 'react-navigation';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Colors} from 'react-native-paper';
 import {config, colors} from '../shared/config';
+import RNExitApp from 'react-native-exit-app';
 
 const {height, width} = Dimensions.get('screen');
 const aspectRation = height / width;
@@ -19,6 +21,7 @@ const aspectRation = height / width;
 export interface HeaderProps {
   navigation: {
     navigate: (path: string) => void;
+    goBack: () => void;
   };
   scene: {
     descriptor: {
@@ -81,6 +84,11 @@ function HeaderComponent(props: HeaderProps) {
           style={styles.navigateButton}>
           <Text>Глосарій</Text>
         </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate('Galery')}
+          style={styles.navigateButton}>
+          <Text>Галерея</Text>
+        </TouchableOpacity>
       </View>
     );
   };
@@ -103,9 +111,11 @@ function HeaderComponent(props: HeaderProps) {
           <Text>Сторінка розробника</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => props.navigation.navigate('Galery')}
+          onPress={() => {
+            RNExitApp.exitApp(); /// only for android
+          }}
           style={styles.navigateButton}>
-          <Text>Галерея</Text>
+          <Text>Закрити додаток</Text>
         </TouchableOpacity>
       </View>
     );
@@ -128,7 +138,7 @@ function HeaderComponent(props: HeaderProps) {
   const renderMoreIcon = () => {
     return (
       <MaterialIcon
-        style={{left: width - 70, alignSelf: 'center', color: '#fff'}}
+        style={{left: width - 80, alignSelf: 'center', color: '#fff'}}
         onPress={() => {
           setIsLeftMenuOpen(false);
           setIsRightMenuOpen(!isRightMenuOpen);
@@ -142,10 +152,10 @@ function HeaderComponent(props: HeaderProps) {
   const renderBackButton = () => {
     return (
       <MaterialIcon
-        style={{left: width - 70, alignSelf: 'center', color: '#fff'}}
+        style={{left: width - 80, alignSelf: 'center', color: '#fff'}}
         onPress={() => {
           setIsLeftMenuOpen(false);
-          props.navigation.navigate('ChronologyOfInventions');
+          props.navigation.goBack();
         }}
         size={aspectRation * 14}
         name="arrow-back"
