@@ -10,6 +10,7 @@ import Galery from './Galery/Galery';
 import SingleImage from './SingleImage/SingleImage';
 import {colors} from '../shared/config';
 import SplashScreen from '../features/SplashScreen/SplashScreen';
+import MainPeriodsOfMedia from '../features/MainPeriodsMedia/MainPeriodsComponent';
 
 interface RootProps {
   navigation: any;
@@ -111,6 +112,15 @@ class Root extends React.Component<RootProps> {
             },
             title: '',
             headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="MainPeriodsOfMedia"
+          component={MainPeriodsOfMedia}
+          options={{
+            title: 'Основні етап розвитку',
+            headerStyle: {backgroundColor: colors.backgroundColor},
+            header: (props) => <Header {...props} isBackButton={true} />,
           }}
         />
       </Stack.Navigator>

@@ -21,14 +21,8 @@ const DetailedInformation = (props: DetailedInformationProps) => {
 
   const headerProps: HeaderProps = {
     navigation: props.navigation,
-    scene: {
-      descriptor: {
-        options: {
-          title: inventionData.title,
-          isBackButton: true,
-        },
-      },
-    },
+    title: inventionData.title,
+    isBackButton: true,
   };
 
   return (

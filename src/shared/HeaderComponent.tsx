@@ -26,17 +26,18 @@ export interface HeaderProps {
   scene: {
     descriptor: {
       options: {
-        title?: string;
-        isBackButton?: boolean;
+        title: string;
       };
     };
   };
+  title?: string;
+  isBackButton?: boolean;
 }
 
 function HeaderComponent(props: HeaderProps) {
   const [isLeftMenuOpen, setIsLeftMenuOpen] = React.useState(false);
   const [isRightMenuOpen, setIsRightMenuOpen] = React.useState(false);
-
+  console.log(props);
   React.useEffect(() => {
     DeviceEventEmitter.addListener('touchEmitter', closeAllMenu);
 
@@ -50,7 +51,7 @@ function HeaderComponent(props: HeaderProps) {
     setIsRightMenuOpen(false);
   };
 
-  const {isBackButton, title} = props.scene.descriptor.options;
+  const {isBackButton, title} = props;
 
   const renderLeftMenu = () => {
     return (
@@ -65,7 +66,7 @@ function HeaderComponent(props: HeaderProps) {
           padding: 5,
         }}>
         <TouchableOpacity
-          onPress={() => props.navigation.navigate('')}
+          onPress={() => props.navigation.navigate('MainPeriodsOfMedia')}
           style={styles.navigateButton}>
           <Text>Основні єтапи розвитку </Text>
         </TouchableOpacity>
@@ -182,7 +183,7 @@ function HeaderComponent(props: HeaderProps) {
           color: '#fff',
           fontSize: aspectRation * 10,
         }}>
-        {title}
+        {title ? title : props.scene.descriptor.options.title}
       </Text>
       {isLeftMenuOpen === true ? renderLeftMenu() : undefined}
       {isRightMenuOpen === true ? renderRightMenu() : undefined}

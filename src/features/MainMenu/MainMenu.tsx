@@ -5,12 +5,17 @@ import images from '../../data/images';
 
 interface MainMenuProps {
   navigation: {
-    navigate: (path: string) => void;
+    navigate: (path: string, params?: Object) => void;
   };
 }
 
 export const MainMenu = (props: MainMenuProps) => {
-  const renderButton = (path: string, text: string, isMarked: boolean) => {
+  const renderButton = (
+    path: string,
+    text: string,
+    isMarked: boolean,
+    params?: Object,
+  ) => {
     const style = isMarked
       ? [styles.textContainer, styles.textWithBackground]
       : styles.textContainer;
@@ -18,7 +23,7 @@ export const MainMenu = (props: MainMenuProps) => {
     const textStyle = isMarked ? {color: '#fff'} : {color: '#000'};
 
     const onPress = () => {
-      props.navigation.navigate(path);
+      props.navigation.navigate(path, params);
     };
 
     return (
@@ -35,7 +40,15 @@ export const MainMenu = (props: MainMenuProps) => {
         source={images.mainMenu}
       />
       <Text style={styles.article}>Історія розвитку мультимедіа</Text>
-      {renderButton('', 'Основні етапи розвитку', true)}
+      {renderButton('MainPeriodsOfMedia', 'Основні етапи розвитку', true, {
+        scene: {
+          descriptor: {
+            options: {
+              isBackButton: true,
+            },
+          },
+        },
+      })}
       {renderButton('ChronologyOfInventions', 'Хронологія винаходів', false)}
       {renderButton('', 'Відповіді на запитання гри', true)}
       {renderButton('', 'Глосарій з "Історії мультимедіа"', false)}
