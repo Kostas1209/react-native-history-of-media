@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useEffect} from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 import styles from './MainMenuStyles';
 import images from '../../data/images';
@@ -40,18 +40,10 @@ export const MainMenu = (props: MainMenuProps) => {
         source={images.mainMenu}
       />
       <Text style={styles.article}>Історія розвитку мультимедіа</Text>
-      {renderButton('MainPeriodsOfMedia', 'Основні етапи розвитку', true, {
-        scene: {
-          descriptor: {
-            options: {
-              isBackButton: true,
-            },
-          },
-        },
-      })}
+      {renderButton('MainPeriodsOfMedia', 'Основні етапи розвитку', true)}
       {renderButton('ChronologyOfInventions', 'Хронологія винаходів', false)}
       {renderButton('', 'Відповіді на запитання гри', true)}
-      {renderButton('', 'Глосарій з "Історії мультимедіа"', false)}
+      {renderButton('Glosary', 'Глосарій з "Історії мультимедіа"', false)}
       {renderButton('Galery', 'Галерея', true)}
     </View>
   );

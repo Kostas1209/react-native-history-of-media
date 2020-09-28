@@ -37,7 +37,6 @@ export interface HeaderProps {
 function HeaderComponent(props: HeaderProps) {
   const [isLeftMenuOpen, setIsLeftMenuOpen] = React.useState(false);
   const [isRightMenuOpen, setIsRightMenuOpen] = React.useState(false);
-  console.log(props);
   React.useEffect(() => {
     DeviceEventEmitter.addListener('touchEmitter', closeAllMenu);
 
@@ -81,7 +80,7 @@ function HeaderComponent(props: HeaderProps) {
           <Text>Відповіді на запитання</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => props.navigation.navigate('')}
+          onPress={() => props.navigation.navigate('Glosary')}
           style={styles.navigateButton}>
           <Text>Глосарій</Text>
         </TouchableOpacity>

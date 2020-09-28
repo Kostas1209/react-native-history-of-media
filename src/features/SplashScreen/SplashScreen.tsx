@@ -15,7 +15,7 @@ const SplashScreen = (props: SplashProps) => {
   React.useEffect(() => {
     fadeOutDialog();
     setTimeout(() => {
-      props.navigation.navigate(INITIAL_ROUTE);
+      props.navigation.replace(INITIAL_ROUTE);
     }, 3500);
   }, []);
 
