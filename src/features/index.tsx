@@ -12,6 +12,8 @@ import {colors} from '../shared/config';
 import SplashScreen from '../features/SplashScreen/SplashScreen';
 import MainPeriodsOfMedia from '../features/MainPeriodsMedia/MainPeriodsComponent';
 import GlosaryComponent from './Glosary/GlosaryComponent';
+import QuestionListComponent from './Answers/QuestionList';
+import AnswerScreen from './AnswerScreen/Answer';
 
 interface RootProps {
   navigation: any;
@@ -129,6 +131,22 @@ class Root extends React.Component<RootProps> {
           component={GlosaryComponent}
           options={{
             title: 'Глосарій',
+            header: (props) => <Header {...props} isBackButton={true} />,
+          }}
+        />
+        <Stack.Screen
+          name="QuestionList"
+          component={QuestionListComponent}
+          options={{
+            title: 'выдповіді на запитання гри',
+            header: (props) => <Header {...props} isBackButton={false} />,
+          }}
+        />
+        <Stack.Screen
+          name="AnswerScreen"
+          component={AnswerScreen}
+          options={{
+            title: 'выдповіді на запитання гри',
             header: (props) => <Header {...props} isBackButton={true} />,
           }}
         />

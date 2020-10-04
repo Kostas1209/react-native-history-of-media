@@ -4,4 +4,5 @@ export default {
   hamburgerIcon: require('../../assets/hamburgerIcon.png'),
   splashScreenTop: require('../../assets/SplashScreenBottom.jpg'),
   eye: require('../../assets/Eye.png'),
+  lizard: require('../../assets/answerImages/lizard.png'),
 };

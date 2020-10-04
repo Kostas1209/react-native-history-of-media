@@ -7,6 +7,7 @@ import CarouseComponent from '../../components/Carousel/Carousel';
 interface DetailedInformationProps {
   navigation: {
     navigate: () => void;
+    goBack: () => void;
   };
   route: {
     params: {
@@ -26,7 +27,7 @@ const DetailedInformation = (props: DetailedInformationProps) => {
   };
 
   return (
-    <View>
+    <View style={{flex: 1}}>
       <Header {...headerProps} />
       <CarouseComponent article={inventionData} />
     </View>

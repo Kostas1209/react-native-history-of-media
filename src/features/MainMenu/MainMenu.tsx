@@ -42,7 +42,7 @@ export const MainMenu = (props: MainMenuProps) => {
       <Text style={styles.article}>Історія розвитку мультимедіа</Text>
       {renderButton('MainPeriodsOfMedia', 'Основні етапи розвитку', true)}
       {renderButton('ChronologyOfInventions', 'Хронологія винаходів', false)}
-      {renderButton('', 'Відповіді на запитання гри', true)}
+      {renderButton('QuestionList', 'Відповіді на запитання гри', true)}
       {renderButton('Glosary', 'Глосарій з "Історії мультимедіа"', false)}
       {renderButton('Galery', 'Галерея', true)}
     </View>

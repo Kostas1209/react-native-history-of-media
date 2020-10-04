@@ -63,6 +63,7 @@ function HeaderComponent(props: HeaderProps) {
           left: '13%',
           borderRadius: 2,
           padding: 5,
+          zIndex: 1000,
         }}>
         <TouchableOpacity
           onPress={() => props.navigation.navigate('MainPeriodsOfMedia')}
@@ -75,7 +76,7 @@ function HeaderComponent(props: HeaderProps) {
           <Text>Хронологія винаходів</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => props.navigation.navigate('')}
+          onPress={() => props.navigation.navigate('QuestionList')}
           style={styles.navigateButton}>
           <Text>Відповіді на запитання</Text>
         </TouchableOpacity>
@@ -104,6 +105,7 @@ function HeaderComponent(props: HeaderProps) {
           left: '40%',
           borderRadius: 2,
           padding: 5,
+          zIndex: 1001,
         }}>
         <TouchableOpacity
           onPress={() => props.navigation.navigate('Profile')}
@@ -166,7 +168,7 @@ function HeaderComponent(props: HeaderProps) {
   return (
     <View
       style={{
-        zIndex: 100,
+        zIndex: 1000,
         flexDirection: 'row',
         backgroundColor: colors.backgroundColor,
         height: height * 0.08,
