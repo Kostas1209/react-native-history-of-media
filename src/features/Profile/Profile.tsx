@@ -1,9 +1,11 @@
 import * as React from 'react';
-import {View, Image, Text, Dimensions} from 'react-native';
+import {View, Image, Text, Dimensions, ImageBackground} from 'react-native';
 import {Colors, Button} from 'react-native-paper';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import LinearGradient from 'react-native-linear-gradient';
 import styles from './styles';
+import images from '../../data/images';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const {width, height} = Dimensions.get('screen');
 const aspectRation = height / width;
@@ -16,6 +18,24 @@ interface ProfileProps {
 }
 
 const Profile = (props: ProfileProps) => {
+  const renderTextWithImage = (text: string, iconName: string) => {
+    return (
+      <View style={{flexDirection: 'row', width: '100%'}}>
+        <Icon
+          style={{
+            position: 'absolute',
+            top: '35%',
+            left: '7%',
+            color: 'rgb(93, 59, 50)',
+          }}
+          name={iconName}
+          size={aspectRation * 13}
+        />
+        <Text style={styles.socialInfoText}>{text}</Text>
+      </View>
+    );
+  };
+
   const renderBackButton = () => {
     return (
       <MaterialIcon
@@ -55,9 +75,9 @@ const Profile = (props: ProfileProps) => {
       </View>
       <View style={styles.socialInfoContainer}>
         {renderDevider()}
-        <Text style={styles.socialInfoText}>el.krivomlinova1997@gmail.com</Text>
-        <Text style={styles.socialInfoText}>0967000143</Text>
-        <Text style={styles.socialInfoText}>onlywe_on</Text>
+        {renderTextWithImage('el.krivomlinova1997@gmail.com', 'email')}
+        {renderTextWithImage('0967000143', 'phone')}
+        {renderTextWithImage('onlywe_on', 'instagram')}
       </View>
     </LinearGradient>
   );

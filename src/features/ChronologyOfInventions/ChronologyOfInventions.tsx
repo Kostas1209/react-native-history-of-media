@@ -4,7 +4,7 @@ import styles from './ChronologyOfInventionsStyles';
 import {Colors} from 'react-native-paper';
 import {Article, articles} from '../../data/articles';
 import images from '../../data/images';
-import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
+import WrapperEmmiter from '../../helpers/wrapper';
 
 interface ChronologyOfInventionsProps {
   navigation: any;
@@ -42,16 +42,12 @@ const ChoronologyOfInventions = (props: ChronologyOfInventionsProps) => {
   };
 
   return (
-    <TouchableWithoutFeedback
-      style={styles.mainContainer}
-      onPress={() => {
-        DeviceEventEmitter.emit('touchEmitter');
-      }}>
+    <View style={styles.mainContainer}>
       {articles.map((articleData, index) =>
         renderInvention(articleData, index),
       )}
-    </TouchableWithoutFeedback>
+    </View>
   );
 };
 
-export default ChoronologyOfInventions;
+export default WrapperEmmiter(ChoronologyOfInventions);

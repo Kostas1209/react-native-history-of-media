@@ -7,6 +7,7 @@ const aspectRation = height / width;
 const styles = StyleSheet.create({
   infoText: {
     fontSize: aspectRation * 7,
+    flexWrap: 'wrap',
   },
   photo: {
     marginTop: 20,
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
   infoContainer: {
     marginTop: height * 0.02,
     flex: 0.5,
-    left: '20%',
+    marginLeft: '20%',
   },
   socialInfoContainer: {
     flex: 0.42,
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
     marginBottom: height * 0.015,
   },
   socialInfoText: {
-    left: '20%',
+    marginLeft: '20%',
     marginTop: height * 0.02,
   },
   backButton: {

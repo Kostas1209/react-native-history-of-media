@@ -17,8 +17,17 @@ interface RenderComponentProps {
 const renderComponent = (props: RenderComponentProps) => {
   const renderAnchor = (item: ComponentProps) => {
     return (
-      <TouchableOpacity onPress={() => Linking.openURL(item.url || '')}>
-        <Text style={{textDecorationLine: 'underline'}}>{item.text}</Text>
+      <TouchableOpacity
+        style={{margin: 20}}
+        onPress={() => Linking.openURL(item.url || '')}>
+        <Text
+          style={{
+            textDecorationLine: 'underline',
+            color: 'rgb(0, 0, 255)',
+            fontSize: 20,
+          }}>
+          {item.text}
+        </Text>
       </TouchableOpacity>
     );
   };

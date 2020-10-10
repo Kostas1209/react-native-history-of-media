@@ -1,5 +1,12 @@
 import * as React from 'react';
-import {View, Image, Text, ScrollView, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Image,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+  ImageBackground,
+} from 'react-native';
 import galeryStyles from './GaleryStyle';
 import images from '../../data/images';
 import {galeryImages, GaleryImage} from '../../data/galeryImages';
@@ -19,7 +26,7 @@ const GaleryComponent = (props: GaleryProps) => {
         }
         style={galeryStyles.imageContainer}
         key={index}>
-        <Image
+        <ImageBackground
           style={galeryStyles.image}
           source={images[galeryImage.imageName]}
         />
@@ -33,7 +40,6 @@ const GaleryComponent = (props: GaleryProps) => {
         backgroundColor: '#fff',
         height: '100%',
         width: '100%',
-        flex: 1,
       }}>
       <ScrollView
         style={{
@@ -42,7 +48,7 @@ const GaleryComponent = (props: GaleryProps) => {
           marginRight: '5%',
           marginTop: 30,
         }}>
-        <Text>{galeryImages.length} фото</Text>
+        <Text style={{marginBottom: 10}}>{galeryImages.length} фото</Text>
         <View style={{flexWrap: 'wrap', flexDirection: 'row'}}>
           {galeryImages.map((item, index) => renderItem(item, index))}
         </View>

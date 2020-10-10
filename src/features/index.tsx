@@ -121,7 +121,7 @@ class Root extends React.Component<RootProps> {
           name="MainPeriodsOfMedia"
           component={MainPeriodsOfMedia}
           options={{
-            title: 'Основні етап розвитку',
+            title: 'Основні етапи розвитку',
             headerStyle: {backgroundColor: colors.backgroundColor},
             header: (props) => <Header {...props} isBackButton={true} />,
           }}
@@ -138,7 +138,7 @@ class Root extends React.Component<RootProps> {
           name="QuestionList"
           component={QuestionListComponent}
           options={{
-            title: 'выдповіді на запитання гри',
+            title: 'Відповіді на запитання гри',
             header: (props) => <Header {...props} isBackButton={false} />,
           }}
         />
@@ -146,7 +146,7 @@ class Root extends React.Component<RootProps> {
           name="AnswerScreen"
           component={AnswerScreen}
           options={{
-            title: 'выдповіді на запитання гри',
+            title: 'Відповіді на запитання гри',
             header: (props) => <Header {...props} isBackButton={true} />,
           }}
         />

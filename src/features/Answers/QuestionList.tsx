@@ -4,6 +4,7 @@ import images from '../../data/images';
 import {AnswerProps, answerData} from '../../data/answers';
 import styles from './QuestionListStyles';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import WrapperEmmiter from '../../helpers/wrapper';
 
 interface QuestionListProps {
   navigation: {
@@ -27,9 +28,7 @@ const QuestionListComponent = (props: QuestionListProps) => {
 
   const renderList = () => {
     return (
-      <View style={{zIndex: 1001}}>
-        {answerData.map((item, index) => renderItem(item, index))}
-      </View>
+      <View>{answerData.map((item, index) => renderItem(item, index))}</View>
     );
   };
 
@@ -41,4 +40,4 @@ const QuestionListComponent = (props: QuestionListProps) => {
   );
 };
 
-export default QuestionListComponent;
+export default WrapperEmmiter(QuestionListComponent);

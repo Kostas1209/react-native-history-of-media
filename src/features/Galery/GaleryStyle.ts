@@ -1,15 +1,19 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
+
+const {height, width} = Dimensions.get('screen');
 
 const galeryStyles = StyleSheet.create({
   image: {
-    marginTop: 10,
-    maxWidth: 100,
-    maxHeight: 100,
+    width: width * 0.4,
+    height: width * 0.3,
     resizeMode: 'contain',
   },
   imageContainer: {
-    height: 100,
-    width: 100,
+    marginLeft: 1,
+    marginTop: 3,
+    marginBottom: 3,
+    width: width * 0.4,
+    height: width * 0.3,
   },
 });
 

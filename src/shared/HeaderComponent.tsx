@@ -7,27 +7,49 @@ import {
   Text,
   StyleSheet,
   DeviceEventEmitter,
-  BackHandler,
 } from 'react-native';
-import {withNavigation} from 'react-navigation';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Colors} from 'react-native-paper';
 import {config, colors} from '../shared/config';
 import RNExitApp from 'react-native-exit-app';
 
+const getActiveRouteState = function (route: {name: string}): number {
+  switch (route.name) {
+    case 'MainPeriodsOfMedia':
+      return 1;
+    case 'ChronologyOfInventions':
+      return 2;
+    case 'QuestionList':
+    case 'AnswerScreen':
+      return 3;
+    case 'Glosary':
+      return 4;
+    case 'Galery':
+    case 'SingleImage':
+      return 5;
+    default:
+      return 0;
+  }
+};
+
 const {height, width} = Dimensions.get('screen');
 const aspectRation = height / width;
+const currentRouteColor = '#FCD12A';
+let currentRouteIndex = 0;
 
 export interface HeaderProps {
   navigation: {
     navigate: (path: string) => void;
     goBack: () => void;
   };
-  scene: {
+  scene?: {
     descriptor: {
       options: {
         title: string;
       };
+    };
+    route: {
+      name: string;
     };
   };
   title?: string;
@@ -37,6 +59,8 @@ export interface HeaderProps {
 function HeaderComponent(props: HeaderProps) {
   const [isLeftMenuOpen, setIsLeftMenuOpen] = React.useState(false);
   const [isRightMenuOpen, setIsRightMenuOpen] = React.useState(false);
+  const [currentRouteIndex, setCurrentRouteIndex] = React.useState(0);
+
   React.useEffect(() => {
     DeviceEventEmitter.addListener('touchEmitter', closeAllMenu);
 
@@ -44,6 +68,14 @@ function HeaderComponent(props: HeaderProps) {
       DeviceEventEmitter.removeListener('touchEmitter', closeAllMenu);
     };
   }, []);
+
+  React.useEffect(() => {
+    if (props.scene) {
+      setCurrentRouteIndex(getActiveRouteState(props.scene.route || 0));
+    } else {
+      setCurrentRouteIndex(2);
+    }
+  });
 
   const closeAllMenu = () => {
     setIsLeftMenuOpen(false);
@@ -66,29 +98,63 @@ function HeaderComponent(props: HeaderProps) {
           zIndex: 1000,
         }}>
         <TouchableOpacity
-          onPress={() => props.navigation.navigate('MainPeriodsOfMedia')}
+          onPress={() => {
+            closeAllMenu();
+            setCurrentRouteIndex(1);
+            props.navigation.navigate('MainPeriodsOfMedia');
+          }}
           style={styles.navigateButton}>
-          <Text>Основні єтапи розвитку </Text>
+          <Text
+            style={[
+              {color: '#000'},
+              currentRouteIndex == 1 && {color: currentRouteColor},
+            ]}>
+            Основні етапи розвитку
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => props.navigation.navigate('ChronologyOfInventions')}
+          onPress={() => {
+            closeAllMenu();
+            setCurrentRouteIndex(2);
+            props.navigation.navigate('ChronologyOfInventions');
+          }}
           style={styles.navigateButton}>
-          <Text>Хронологія винаходів</Text>
+          <Text style={currentRouteIndex == 2 && {color: currentRouteColor}}>
+            Хронологія винаходів
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => props.navigation.navigate('QuestionList')}
+          onPress={() => {
+            closeAllMenu();
+            setCurrentRouteIndex(3);
+            props.navigation.navigate('QuestionList');
+          }}
           style={styles.navigateButton}>
-          <Text>Відповіді на запитання</Text>
+          <Text style={currentRouteIndex == 3 && {color: currentRouteColor}}>
+            Відповіді на запитання
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => props.navigation.navigate('Glosary')}
+          onPress={() => {
+            closeAllMenu();
+            setCurrentRouteIndex(4);
+            props.navigation.navigate('Glosary');
+          }}
           style={styles.navigateButton}>
-          <Text>Глосарій</Text>
+          <Text style={currentRouteIndex == 4 && {color: currentRouteColor}}>
+            Глосарій
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => props.navigation.navigate('Galery')}
+          onPress={() => {
+            closeAllMenu();
+            setCurrentRouteIndex(5);
+            props.navigation.navigate('Galery');
+          }}
           style={styles.navigateButton}>
-          <Text>Галерея</Text>
+          <Text style={currentRouteIndex == 5 && {color: currentRouteColor}}>
+            Галерея
+          </Text>
         </TouchableOpacity>
       </View>
     );
@@ -108,12 +174,19 @@ function HeaderComponent(props: HeaderProps) {
           zIndex: 1001,
         }}>
         <TouchableOpacity
-          onPress={() => props.navigation.navigate('Profile')}
+          onPress={() => {
+            closeAllMenu();
+            setCurrentRouteIndex(6);
+            props.navigation.navigate('Profile');
+          }}
           style={styles.navigateButton}>
-          <Text>Сторінка розробника</Text>
+          <Text style={currentRouteIndex == 6 && {color: currentRouteColor}}>
+            Сторінка розробника
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
+            closeAllMenu();
             RNExitApp.exitApp(); /// only for android
           }}
           style={styles.navigateButton}>
@@ -126,7 +199,11 @@ function HeaderComponent(props: HeaderProps) {
   const renderMenuIcon = () => {
     return (
       <MaterialCommunityIcon
-        style={{marginLeft: 10, alignSelf: 'center', color: '#fff'}}
+        style={{
+          marginLeft: 10,
+          alignSelf: 'center',
+          color: '#fff',
+        }}
         onPress={() => {
           setIsRightMenuOpen(false);
           setIsLeftMenuOpen(!isLeftMenuOpen);
@@ -179,7 +256,8 @@ function HeaderComponent(props: HeaderProps) {
         : renderMoreIcon()}
       <Text
         style={{
-          marginLeft: 10,
+          position: 'absolute',
+          left: 50,
           alignSelf: 'center',
           color: '#fff',
           fontSize: aspectRation * 10,
