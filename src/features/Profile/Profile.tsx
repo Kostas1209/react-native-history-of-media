@@ -65,7 +65,7 @@ const Profile = (props: ProfileProps) => {
         source={require('../../../assets/profilePhoto.png')}
       />
       <View style={styles.infoContainer}>
-        <Text style={styles.infoText}>Криволмлинова Ельміра Олександрівна</Text>
+        <Text style={styles.infoText}>Кривомлинова Ельміра Олександрівна</Text>
         <Text style={styles.infoText}>23 роки</Text>
         <Text style={styles.infoText}>Студентка ХНЕУ ім. С. Кузнеця</Text>
         <Text style={styles.infoText}>Факультет: Економічної інформатики</Text>

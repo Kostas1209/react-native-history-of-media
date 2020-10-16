@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {View, Text, Image, DeviceEventEmitter} from 'react-native';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
 import styles from './ChronologyOfInventionsStyles';
 import {Colors} from 'react-native-paper';
 import {Article, articles} from '../../data/articles';
@@ -17,17 +17,17 @@ const ChoronologyOfInventions = (props: ChronologyOfInventionsProps) => {
 
   const renderInvention = (inventionData: Article, index: number) => {
     return (
-      <View key={index}>
+      <TouchableOpacity
+        key={index}
+        onPress={() => {
+          props.navigation.navigate('DetailedInformation', {
+            index: index,
+          });
+        }}>
         <View style={styles.articleContainer}>
           <Text style={styles.text}>
             {inventionData.breiflyContent}
-            <Text
-              onPress={() => {
-                props.navigation.navigate('DetailedInformation', {
-                  index: index,
-                });
-              }}
-              style={[styles.text, {fontWeight: 'bold'}]}>
+            <Text style={[styles.text, {fontWeight: 'bold'}]}>
               ... Читати далі
             </Text>
           </Text>
@@ -37,7 +37,7 @@ const ChoronologyOfInventions = (props: ChronologyOfInventionsProps) => {
           />
         </View>
         {renderDevider()}
-      </View>
+      </TouchableOpacity>
     );
   };
 

@@ -17,15 +17,16 @@ interface RenderComponentProps {
 const renderComponent = (props: RenderComponentProps) => {
   const renderAnchor = (item: ComponentProps) => {
     return (
-      <TouchableOpacity
-        style={{margin: 20}}
-        onPress={() => Linking.openURL(item.url || '')}>
+      <TouchableOpacity onPress={() => Linking.openURL(item.url || '')}>
         <Text
-          style={{
-            textDecorationLine: 'underline',
-            color: 'rgb(0, 0, 255)',
-            fontSize: 20,
-          }}>
+          style={[
+            {
+              // textDecorationLine: 'underline',
+              color: 'rgb(0, 0, 0)',
+              fontSize: 17,
+            },
+            item.style && item.style,
+          ]}>
           {item.text}
         </Text>
       </TouchableOpacity>
@@ -50,7 +51,11 @@ const renderComponent = (props: RenderComponentProps) => {
   };
 
   const renderText = (item: ComponentProps) => {
-    return <Text style={{fontSize: 17}}>{'     ' + item.text}</Text>;
+    return (
+      <Text style={[{fontSize: 17}, item.style && item.style]}>
+        {'     ' + item.text}
+      </Text>
+    );
   };
 
   return (

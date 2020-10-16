@@ -7,7 +7,6 @@ export default {
   lizard: require('../../assets/answerImages/lizard.png'),
   author: require('../../assets/galeryImages/author.jpg'),
   cavePainting1: require('../../assets/galeryImages/cavePainting1.png'),
-  bird: require('../../assets/galeryImages/bird.png'),
   cavePainting2: require('../../assets/galeryImages/cavePainting2.png'),
   cavePainting3: require('../../assets/galeryImages/cavePainting3.jpg'),
   cavePainting4: require('../../assets/galeryImages/cavePainting4.jpg'),
@@ -15,7 +14,6 @@ export default {
   cavePainting6: require('../../assets/galeryImages/cavePainting5.jpg'),
   cavePainting7: require('../../assets/galeryImages/cavePainting7.jpg'),
   cavePainting8: require('../../assets/galeryImages/cavePainting8.jpg'),
-  cavePainting9: require('../../assets/galeryImages/cavePainting9.png'),
   cavePainting10: require('../../assets/galeryImages/cavePainting10.png'),
   cavePainting11: require('../../assets/galeryImages/cavePainting11.jpg'),
   cavePainting12: require('../../assets/galeryImages/cavePainting12.png'),
@@ -33,4 +31,16 @@ export default {
   fenicoscop: require('../../assets/galeryImages/fenicoscop.jpg'),
   gramophone: require('../../assets/galeryImages/gramophone.png'),
   zootrop1: require('../../assets/animation/zootrop1.gif'),
+
+  firstChronologyFirstImage: require('../../assets/ChronologyOfInventions/1/firstImage.jpg'),
+  firstChronologySecondImage: require('../../assets/ChronologyOfInventions/1/secondImage.jpg'),
+
+  secondChronologyFirstImage: require('../../assets/ChronologyOfInventions/2/firstImage.jpg'),
+
+  thirdChronologyFirstImage: require('../../assets/animation/zootrop3.gif'),
+  thirdChronologySecondImage: require('../../assets/animation/zootrop4.gif'),
+
+  fourthChronologyFirstImage: require('../../assets/animation/zootrop2.gif'),
+
+  fifthChronologyFirstImage: require('../../assets/ChronologyOfInventions/5/firstImage.png'),
 };

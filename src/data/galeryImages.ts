@@ -8,10 +8,6 @@ export const galeryImages: GaleryImage[] = [
     imageBreiflyInformation: 'LoremIpsum',
   },
   {
-    imageName: 'bird',
-    imageBreiflyInformation: 'LoremIpsum',
-  },
-  {
     imageName: 'cavePainting2',
     imageBreiflyInformation: 'LoremIpsum',
   },
@@ -37,10 +33,6 @@ export const galeryImages: GaleryImage[] = [
   },
   {
     imageName: 'cavePainting8',
-    imageBreiflyInformation: 'LoremIpsum',
-  },
-  {
-    imageName: 'cavePainting9',
     imageBreiflyInformation: 'LoremIpsum',
   },
   {

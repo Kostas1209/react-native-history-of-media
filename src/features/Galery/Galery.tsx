@@ -27,6 +27,7 @@ const GaleryComponent = (props: GaleryProps) => {
         style={galeryStyles.imageContainer}
         key={index}>
         <ImageBackground
+          imageStyle={{resizeMode: 'contain'}}
           style={galeryStyles.image}
           source={images[galeryImage.imageName]}
         />
@@ -37,6 +38,7 @@ const GaleryComponent = (props: GaleryProps) => {
   return (
     <View
       style={{
+        flex: 1,
         backgroundColor: '#fff',
         height: '100%',
         width: '100%',
@@ -44,12 +46,17 @@ const GaleryComponent = (props: GaleryProps) => {
       <ScrollView
         style={{
           flex: 1,
-          marginLeft: '5%',
-          marginRight: '5%',
           marginTop: 30,
         }}>
-        <Text style={{marginBottom: 10}}>{galeryImages.length} фото</Text>
-        <View style={{flexWrap: 'wrap', flexDirection: 'row'}}>
+        <Text style={{marginBottom: 10, marginLeft: 10}}>
+          {galeryImages.length} фото
+        </Text>
+        <View
+          style={{
+            flexWrap: 'wrap',
+            flexDirection: 'row',
+            justifyContent: 'center',
+          }}>
           {galeryImages.map((item, index) => renderItem(item, index))}
         </View>
       </ScrollView>

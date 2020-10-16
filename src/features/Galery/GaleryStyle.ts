@@ -4,16 +4,13 @@ const {height, width} = Dimensions.get('screen');
 
 const galeryStyles = StyleSheet.create({
   image: {
-    width: width * 0.4,
-    height: width * 0.3,
+    width: width * 0.45,
+    height: width * 0.4,
     resizeMode: 'contain',
   },
   imageContainer: {
-    marginLeft: 1,
-    marginTop: 3,
-    marginBottom: 3,
-    width: width * 0.4,
-    height: width * 0.3,
+    marginBottom: 5,
+    marginLeft: 5,
   },
 });
 
