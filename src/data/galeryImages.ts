@@ -1,103 +1,52 @@
 export const galeryImages: GaleryImage[] = [
   {
-    imageName: 'author',
-    imageBreiflyInformation: 'LoremIpsum',
+    imageName: 'galeryImages1',
+    imageBreiflyInformation:
+      '15 000 г. до н.э. Кроманьонец рисовал животных на стенах пещеры',
   },
   {
-    imageName: 'cavePainting1',
-    imageBreiflyInformation: 'LoremIpsum',
+    imageName: 'galeryImages2',
+    imageBreiflyInformation:
+      'Древние наскальные рисунки Пещера Магура (Magura Cave), Болгария',
   },
   {
-    imageName: 'cavePainting2',
-    imageBreiflyInformation: 'LoremIpsum',
+    imageName: 'galeryImages3',
+    imageBreiflyInformation:
+      'Наскальные изображения Тадрарт-Акакус (Tadrart Acacus), Ливия',
   },
   {
-    imageName: 'cavePainting3',
-    imageBreiflyInformation: 'LoremIpsum',
+    imageName: 'galeryImages4',
+    imageBreiflyInformation: 'Наскальные рисунки в пещерах на берегу реки Мая',
   },
   {
-    imageName: 'cavePainting4',
-    imageBreiflyInformation: 'LoremIpsum',
+    imageName: 'galeryImages5',
+    imageBreiflyInformation: 'Наскальные рисунки в пещерах на берегу реки Мая1',
   },
   {
-    imageName: 'cavePainting5',
-    imageBreiflyInformation: 'LoremIpsum',
+    imageName: 'galeryImages6',
+    imageBreiflyInformation: 'Наскальные рисунки в пещерах на берегу реки Мая2',
   },
   {
-    imageName: 'cavePainting6',
-    imageBreiflyInformation: 'LoremIpsum',
+    imageName: 'galeryImages7',
+    imageBreiflyInformation: 'Национальный парк Какаду, Австралия',
   },
   {
-    imageName: 'cavePainting7',
-    imageBreiflyInformation: 'LoremIpsum',
+    imageName: 'galeryImages8',
+    imageBreiflyInformation:
+      'Национальный парк Серра-да-Капивара (Serra da Capivara), Бразилия',
   },
   {
-    imageName: 'cavePainting8',
-    imageBreiflyInformation: 'LoremIpsum',
+    imageName: 'galeryImages9',
+    imageBreiflyInformation: 'Пещера Шове (Chauvet Cave), Франция',
   },
   {
-    imageName: 'cavePainting10',
-    imageBreiflyInformation: 'LoremIpsum',
+    imageName: 'galeryImages10',
+    imageBreiflyInformation:
+      'Пещерный комплекс Лаас-Гааль (Laas Gaal), Сомалиленд',
   },
   {
-    imageName: 'cavePainting11',
-    imageBreiflyInformation: 'LoremIpsum',
-  },
-  {
-    imageName: 'cavePainting12',
-    imageBreiflyInformation: 'LoremIpsum',
-  },
-  {
-    imageName: 'cavePainting13',
-    imageBreiflyInformation: 'LoremIpsum',
-  },
-  {
-    imageName: 'cavePainting14',
-    imageBreiflyInformation: 'LoremIpsum',
-  },
-  {
-    imageName: 'cavePainting15',
-    imageBreiflyInformation: 'LoremIpsum',
-  },
-  {
-    imageName: 'cavePainting16',
-    imageBreiflyInformation: 'LoremIpsum',
-  },
-  {
-    imageName: 'cavePainting17',
-    imageBreiflyInformation: 'LoremIpsum',
-  },
-  {
-    imageName: 'cavePainting18',
-    imageBreiflyInformation: 'LoremIpsum',
-  },
-  {
-    imageName: 'cavePainting19',
-    imageBreiflyInformation: 'LoremIpsum',
-  },
-  {
-    imageName: 'cavePainting20',
-    imageBreiflyInformation: 'LoremIpsum',
-  },
-  {
-    imageName: 'cavePainting21',
-    imageBreiflyInformation: 'LoremIpsum',
-  },
-  {
-    imageName: 'cavePainting22',
-    imageBreiflyInformation: 'LoremIpsum',
-  },
-  {
-    imageName: 'cavePainting23',
-    imageBreiflyInformation: 'LoremIpsum',
-  },
-  {
-    imageName: 'fenicoscop',
-    imageBreiflyInformation: 'LoremIpsum',
-  },
-  {
-    imageName: 'gramophone',
-    imageBreiflyInformation: 'LoremIpsum',
+    imageName: 'galeryImages11',
+    imageBreiflyInformation: 'Скальные жилища Бхимбетка (Bhimbetka), Индия',
   },
 ];
 
