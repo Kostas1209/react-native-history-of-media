@@ -36,7 +36,7 @@ const SplashScreen = (props: SplashProps) => {
           zIndex: 100,
         }}
         onPress={() => {
-          props.navigation.replace('Profile');
+          props.navigation.navigate('Profile');
         }}>
         <Image
           style={{height: 50, width: 50}}

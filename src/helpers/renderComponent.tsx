@@ -43,7 +43,11 @@ const renderComponent = (props: RenderComponentProps) => {
     return (
       <View style={item.style}>
         <Image
-          style={{resizeMode: 'contain', width: '100%', height: '100%'}}
+          style={{
+            resizeMode: 'contain',
+            width: '100%',
+            height: '100%',
+          }}
           source={images[item.imageName]}
         />
       </View>
@@ -55,6 +59,35 @@ const renderComponent = (props: RenderComponentProps) => {
       <Text style={[{fontSize: 17}, item.style && item.style]}>
         {'     ' + item.text}
       </Text>
+    );
+  };
+
+  const renderList = (item: ComponentProps) => {
+    const renderItem = (text: string) => {
+      return (
+        <View style={{flexDirection: 'row', marginTop: 2}}>
+          <Image
+            resizeMode="contain"
+            style={{width: 40, height: 40}}
+            source={images[item.imageName]}
+          />
+          <View
+            style={{
+              height: 40,
+              justifyContent: 'center',
+              marginLeft: 10,
+              width: '80%',
+            }}>
+            <Text style={{flexWrap: 'wrap'}}>{text}</Text>
+          </View>
+        </View>
+      );
+    };
+
+    return (
+      <View style={{marginTop: 10, flexDirection: 'column'}}>
+        {item.listItems?.map((element) => renderItem(element))}
+      </View>
     );
   };
 
@@ -70,6 +103,8 @@ const renderComponent = (props: RenderComponentProps) => {
             return renderImage(item);
           case 'text':
             return renderText(item);
+          case 'list':
+            return renderList(item);
         }
       })}
     </View>

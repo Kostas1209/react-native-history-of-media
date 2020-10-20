@@ -18,7 +18,13 @@ const AnswerScreen = (props: AnswerScreenProps) => {
 
   return (
     <View>
-      <Text style={{fontSize: 20, alignSelf: 'center', marginBottom: 20}}>
+      <Text
+        style={{
+          fontSize: 20,
+          alignSelf: 'center',
+          marginBottom: 20,
+          textAlign: 'center',
+        }}>
         {currentAnswer.question}
       </Text>
       {renderComponent({component: currentAnswer.answer})}

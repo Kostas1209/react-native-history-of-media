@@ -29,7 +29,11 @@ const GlosaryComponent = (props: GlosaryProps) => {
       <View key={sectionIndex}>
         {renderSectionTitle(item.title)}
         {item.article.map((article: string, index: number) => {
-          return <Text key={index}>{article}</Text>;
+          return (
+            <Text style={{marginTop: 5}} key={index}>
+              {article}
+            </Text>
+          );
         })}
       </View>
     );

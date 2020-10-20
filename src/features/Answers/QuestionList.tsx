@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Image, Text} from 'react-native';
+import {View, Image, Text, ScrollView} from 'react-native';
 import images from '../../data/images';
 import {AnswerProps, answerData} from '../../data/answers';
 import styles from './QuestionListStyles';
@@ -28,7 +28,9 @@ const QuestionListComponent = (props: QuestionListProps) => {
 
   const renderList = () => {
     return (
-      <View>{answerData.map((item, index) => renderItem(item, index))}</View>
+      <ScrollView style={{marginLeft: 20, marginTop: 10}}>
+        {answerData.map((item, index) => renderItem(item, index))}
+      </ScrollView>
     );
   };
 

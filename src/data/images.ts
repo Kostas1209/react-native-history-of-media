@@ -31,4 +31,6 @@ export default {
   fourthChronologyFirstImage: require('../../assets/animation/zootrop2.gif'),
 
   fifthChronologyFirstImage: require('../../assets/ChronologyOfInventions/5/firstImage.png'),
+
+  answer13: require('../../assets/animation/zootrop5.gif'),
 };

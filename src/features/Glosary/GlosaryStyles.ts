@@ -11,6 +11,8 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignContent: 'center',
+    marginBottom: 5,
+    marginTop: 20,
   },
   title: {
     fontSize: 20,

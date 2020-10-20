@@ -1,5 +1,12 @@
 import * as React from 'react';
-import {View, Image, Dimensions, Text} from 'react-native';
+import {
+  View,
+  Image,
+  Dimensions,
+  Text,
+  ImageBackground,
+  ScrollView,
+} from 'react-native';
 import images from '../../data/images';
 import {galeryImages} from '../../data/galeryImages';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
@@ -20,12 +27,27 @@ interface SingleImageProps {
 }
 
 const SingleImage = (props: SingleImageProps) => {
+  const scrollViewRef = React.useRef<ScrollView>(null);
   const {imageNumber} = props.route.params;
+
+  React.useEffect(() => {
+    scrollViewRef.current.scrollTo({
+      x: width * imageNumber,
+      y: 0,
+      animated: false,
+    });
+  });
 
   const renderBackButton = () => {
     return (
       <MaterialIcon
-        style={{left: 20, top: 50, color: '#fff', position: 'absolute'}}
+        style={{
+          left: 20,
+          top: 50,
+          color: '#fff',
+          position: 'absolute',
+          zIndex: 100,
+        }}
         onPress={() => {
           props.navigation.goBack();
         }}
@@ -35,28 +57,41 @@ const SingleImage = (props: SingleImageProps) => {
     );
   };
 
+  const renderItem = (index: number) => {
+    return (
+      <View style={{width: width, height: height, justifyContent: 'center'}}>
+        <View style={{width: '100%', height: 300}}>
+          <ImageBackground
+            resizeMode="contain"
+            style={{width: '100%', height: '100%'}}
+            source={images[galeryImages[index].imageName]}
+          />
+        </View>
+        <Text style={{marginLeft: 20, color: '#fff'}}>
+          {galeryImages[index].imageBreiflyInformation}
+        </Text>
+      </View>
+    );
+  };
+
   return (
-    <View
-      style={{
-        backgroundColor: '#000',
-        width: width,
-        height: height,
-        alignContent: 'center',
-        justifyContent: 'center',
-      }}>
+    <View>
       {renderBackButton()}
-      <Image
-        style={{
-          maxWidth: '100%',
-          maxHeight: height * 0.5,
-          resizeMode: 'contain',
-          alignSelf: 'center',
+      <ScrollView
+        ref={scrollViewRef}
+        horizontal={true}
+        pagingEnabled={true}
+        contentContainerStyle={{
+          height: height,
+          alignContent: 'center',
+          justifyContent: 'center',
+          width: `${galeryImages.length * 100}%`,
         }}
-        source={images[galeryImages[imageNumber].imageName]}
-      />
-      <Text style={{marginLeft: 20, color: '#fff'}}>
-        {galeryImages[imageNumber].imageBreiflyInformation}
-      </Text>
+        style={{
+          backgroundColor: '#000',
+        }}>
+        {galeryImages.map((element, index) => renderItem(index))}
+      </ScrollView>
     </View>
   );
 };
