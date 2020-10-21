@@ -56,7 +56,11 @@ const renderComponent = (props: RenderComponentProps) => {
 
   const renderText = (item: ComponentProps) => {
     return (
-      <Text style={[{fontSize: 17}, item.style && item.style]}>
+      <Text
+        style={[
+          {fontSize: 17, textAlign: 'justify'},
+          item.style && item.style,
+        ]}>
         {'     ' + item.text}
       </Text>
     );
@@ -92,7 +96,7 @@ const renderComponent = (props: RenderComponentProps) => {
   };
 
   return (
-    <View>
+    <View style={{marginHorizontal: 5}}>
       {props.component.map((item: ComponentProps) => {
         switch (item.type) {
           case 'anchor':

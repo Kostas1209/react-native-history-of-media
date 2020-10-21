@@ -9,5 +9,7 @@ export const styles = StyleSheet.create({
     maxWidth: 40,
     resizeMode: 'contain',
   },
-  itemContainer: {},
+  itemContainer: {
+    marginHorizontal: 10,
+  },
 });

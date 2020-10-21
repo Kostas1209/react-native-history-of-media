@@ -9,7 +9,7 @@ const MainPeriodsComponent = () => {
     return (
       <View style={styles.itemContainer} key={index}>
         <Image style={styles.image} source={images.eye} />
-        <Text>{item}</Text>
+        <Text style={{textAlign: 'justify'}}>{item}</Text>
       </View>
     );
   };

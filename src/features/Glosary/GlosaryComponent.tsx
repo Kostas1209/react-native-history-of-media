@@ -30,7 +30,9 @@ const GlosaryComponent = (props: GlosaryProps) => {
         {renderSectionTitle(item.title)}
         {item.article.map((article: string, index: number) => {
           return (
-            <Text style={{marginTop: 5}} key={index}>
+            <Text
+              style={{marginTop: 5, textAlign: 'justify', marginHorizontal: 5}}
+              key={index}>
               {article}
             </Text>
           );
