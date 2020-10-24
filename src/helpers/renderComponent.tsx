@@ -41,7 +41,7 @@ const renderComponent = (props: RenderComponentProps) => {
 
   const renderImage = (item: ComponentProps) => {
     return (
-      <View style={item.style}>
+      <View style={[item.style, {marginVertical: 20}]}>
         <Image
           style={{
             resizeMode: 'contain',
@@ -56,12 +56,8 @@ const renderComponent = (props: RenderComponentProps) => {
 
   const renderText = (item: ComponentProps) => {
     return (
-      <Text
-        style={[
-          {fontSize: 17, textAlign: 'justify'},
-          item.style && item.style,
-        ]}>
-        {'     ' + item.text}
+      <Text style={[{textAlign: 'justify'}, item.style && item.style]}>
+        {'\t\t\t' + item.text}
       </Text>
     );
   };

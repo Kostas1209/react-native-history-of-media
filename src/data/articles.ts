@@ -48,6 +48,7 @@ export const articles: Article[] = [
       {
         type: 'text',
         text: 'Цікаві посилання:',
+        style: {fontSize: 17},
       },
       {
         type: 'breakLine',
@@ -108,6 +109,7 @@ export const articles: Article[] = [
       {
         type: 'text',
         text: 'Цікаві посилання:',
+        style: {fontSize: 17},
       },
       {
         type: 'breakLine',
@@ -211,6 +213,7 @@ export const articles: Article[] = [
       {
         type: 'text',
         text: 'Цікаві посилання:',
+        style: {fontSize: 17},
       },
       {
         type: 'breakLine',
@@ -270,6 +273,7 @@ export const articles: Article[] = [
       {
         type: 'text',
         text: 'Цікаві посилання:',
+        style: {fontSize: 17},
       },
       {
         type: 'breakLine',

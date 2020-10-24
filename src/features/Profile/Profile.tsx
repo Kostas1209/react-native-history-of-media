@@ -41,7 +41,7 @@ const Profile = (props: ProfileProps) => {
       <MaterialIcon
         style={styles.backButton}
         onPress={() => {
-          props.navigation.navigate('MainMenu');
+          props.navigation.goBack();
         }}
         size={aspectRation * 20}
         name="arrow-back"

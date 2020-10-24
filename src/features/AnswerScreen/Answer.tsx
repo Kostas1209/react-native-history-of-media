@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, ScrollView} from 'react-native';
 import {answerData} from '../../data/answers';
 import renderComponent from '../../helpers/renderComponent';
 import WrapperEmmiter from '../../helpers/wrapper';
@@ -17,10 +17,10 @@ const AnswerScreen = (props: AnswerScreenProps) => {
   const currentAnswer = answerData[answerIndex];
 
   return (
-    <View>
+    <ScrollView style={{flex: 1, paddingHorizontal: 10}}>
       <Text
         style={{
-          fontSize: 20,
+          fontSize: 15,
           alignSelf: 'center',
           marginBottom: 20,
           textAlign: 'center',
@@ -28,7 +28,7 @@ const AnswerScreen = (props: AnswerScreenProps) => {
         {currentAnswer.question}
       </Text>
       {renderComponent({component: currentAnswer.answer})}
-    </View>
+    </ScrollView>
   );
 };
 

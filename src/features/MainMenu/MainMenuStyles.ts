@@ -6,8 +6,7 @@ const {width, height} = Dimensions.get('screen');
 const styles = StyleSheet.create({
   textContainer: {
     width: width,
-    height: 40,
-    justifyContent: 'center',
+    paddingVertical: 10,
   },
   textWithBackground: {
     backgroundColor: colors.backgroundColor,
@@ -24,13 +23,14 @@ const styles = StyleSheet.create({
     top: '8%',
   },
   article: {
-    fontSize: 23,
+    fontSize: width * 0.06,
     fontWeight: '700',
     marginBottom: '10%',
     marginTop: '5%',
   },
   text: {
     left: '20%',
+    width: '80%',
   },
 });
 

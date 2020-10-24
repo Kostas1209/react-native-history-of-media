@@ -2,11 +2,12 @@ export default {
   maya: require('../../assets/Maya.jpg'),
   mainMenu: require('../../assets/MainMenuImage.jpg'),
   hamburgerIcon: require('../../assets/hamburgerIcon.png'),
-  splashScreenTop: require('../../assets/SplashScreenBottom.jpg'),
+  splashScreenTop: require('../../assets/SplashScreenTop.jpg'),
   eye: require('../../assets/Eye.png'),
   lizard: require('../../assets/answerImages/lizard.png'),
   zootrop1: require('../../assets/animation/zootrop1.gif'),
   splashScreenAuthorButton: require('../../assets/SplashScreen/author.png'),
+  splashScreenBottom: require('../../assets/SplashScreenBottom.png'),
 
   galeryImages1: require('../../assets/galeryImages/galeryImages1.jpg'),
   galeryImages2: require('../../assets/galeryImages/galeryImages2.jpg'),

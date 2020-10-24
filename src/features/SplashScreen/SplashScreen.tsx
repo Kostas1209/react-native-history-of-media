@@ -59,7 +59,7 @@ const SplashScreen = (props: SplashProps) => {
           zIndex: 100,
         }}
         onPress={() => {
-          props.navigation.replace('MainMenu');
+          props.navigation.navigate('MainMenu');
         }}>
         <Image
           style={{height: 40, width: 40}}
@@ -96,7 +96,7 @@ const SplashScreen = (props: SplashProps) => {
       <Image
         resizeMethod="resize"
         style={styles.image}
-        source={images.splashScreenTop}
+        source={images.splashScreenBottom}
       />
     </Animated.View>
   );

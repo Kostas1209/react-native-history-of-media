@@ -40,8 +40,16 @@ export const MainMenu = (props: MainMenuProps) => {
         source={images.mainMenu}
       />
       <Text style={styles.article}>Історія розвитку мультимедіа</Text>
-      {renderButton('MainPeriodsOfMedia', 'Основні етапи розвитку', true)}
-      {renderButton('ChronologyOfInventions', 'Хронологія винаходів', false)}
+      {renderButton(
+        'ChronologyOfInventions',
+        'Хронологія винаходів до ХХ ст.',
+        true,
+      )}
+      {renderButton(
+        'MainPeriodsOfMedia',
+        'Етапи розвитку мультимедіа у ХХ ст.',
+        false,
+      )}
       {renderButton('QuestionList', 'Відповіді на запитання гри', true)}
       {renderButton('Glosary', 'Глосарій з "Історії мультимедіа"', false)}
       {renderButton('Galery', 'Галерея', true)}

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {View, Text, Image, TouchableOpacity, ScrollView} from 'react-native';
 import styles from './ChronologyOfInventionsStyles';
 import {Colors} from 'react-native-paper';
 import {Article, articles} from '../../data/articles';
@@ -42,11 +42,11 @@ const ChoronologyOfInventions = (props: ChronologyOfInventionsProps) => {
   };
 
   return (
-    <View style={styles.mainContainer}>
+    <ScrollView style={styles.mainContainer}>
       {articles.map((articleData, index) =>
         renderInvention(articleData, index),
       )}
-    </View>
+    </ScrollView>
   );
 };
 

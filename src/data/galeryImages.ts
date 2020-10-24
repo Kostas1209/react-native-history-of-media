@@ -2,51 +2,53 @@ export const galeryImages: GaleryImage[] = [
   {
     imageName: 'galeryImages1',
     imageBreiflyInformation:
-      '15 000 г. до н.э. Кроманьонец рисовал животных на стенах пещеры',
+      '15 000 р. до н.е. Кроманьйонці малював тварин на стінах печери',
   },
   {
     imageName: 'galeryImages2',
     imageBreiflyInformation:
-      'Древние наскальные рисунки Пещера Магура (Magura Cave), Болгария',
+      'Стародавні наскальні малюнки Печера Магура (Magura Cave), Болгарія',
   },
   {
     imageName: 'galeryImages3',
     imageBreiflyInformation:
-      'Наскальные изображения Тадрарт-Акакус (Tadrart Acacus), Ливия',
+      'Наскальні зображення Тадрарт-Акакус (Tadrart Acacus), Лівія',
   },
   {
     imageName: 'galeryImages4',
-    imageBreiflyInformation: 'Наскальные рисунки в пещерах на берегу реки Мая',
+    imageBreiflyInformation: 'Наскальні малюнки в печерах на березі річки Мая',
   },
   {
     imageName: 'galeryImages5',
-    imageBreiflyInformation: 'Наскальные рисунки в пещерах на берегу реки Мая1',
+    imageBreiflyInformation:
+      'Наскальні малюнки в печерах на березі річки Мая 1',
   },
   {
     imageName: 'galeryImages6',
-    imageBreiflyInformation: 'Наскальные рисунки в пещерах на берегу реки Мая2',
+    imageBreiflyInformation:
+      'Наскальні малюнки в печерах на березі річки Мая 2',
   },
   {
     imageName: 'galeryImages7',
-    imageBreiflyInformation: 'Национальный парк Какаду, Австралия',
+    imageBreiflyInformation: 'Національний парк Какаду, Австралія',
   },
   {
     imageName: 'galeryImages8',
     imageBreiflyInformation:
-      'Национальный парк Серра-да-Капивара (Serra da Capivara), Бразилия',
+      'Національний парк Серра-да-Капівара (Serra da Capivara), Бразилія',
   },
   {
     imageName: 'galeryImages9',
-    imageBreiflyInformation: 'Пещера Шове (Chauvet Cave), Франция',
+    imageBreiflyInformation: 'Печера Шові (Chauvet Cave), Франція',
   },
   {
     imageName: 'galeryImages10',
     imageBreiflyInformation:
-      'Пещерный комплекс Лаас-Гааль (Laas Gaal), Сомалиленд',
+      'Печерний комплекс Лаас-Гааль (Laas Gaal), Сомаліленд',
   },
   {
     imageName: 'galeryImages11',
-    imageBreiflyInformation: 'Скальные жилища Бхимбетка (Bhimbetka), Индия',
+    imageBreiflyInformation: 'Скельні укриття в Бхімбетці (Bhimbetka), Індія',
   },
 ];
 

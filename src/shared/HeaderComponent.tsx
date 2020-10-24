@@ -100,6 +100,17 @@ function HeaderComponent(props: HeaderProps) {
         <TouchableOpacity
           onPress={() => {
             closeAllMenu();
+            setCurrentRouteIndex(2);
+            props.navigation.navigate('ChronologyOfInventions');
+          }}
+          style={styles.navigateButton}>
+          <Text style={currentRouteIndex == 2 && {color: currentRouteColor}}>
+            Хронологія винаходів до ХХ ст.
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            closeAllMenu();
             setCurrentRouteIndex(1);
             props.navigation.navigate('MainPeriodsOfMedia');
           }}
@@ -109,18 +120,7 @@ function HeaderComponent(props: HeaderProps) {
               {color: '#000'},
               currentRouteIndex == 1 && {color: currentRouteColor},
             ]}>
-            Основні етапи розвитку
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => {
-            closeAllMenu();
-            setCurrentRouteIndex(2);
-            props.navigation.navigate('ChronologyOfInventions');
-          }}
-          style={styles.navigateButton}>
-          <Text style={currentRouteIndex == 2 && {color: currentRouteColor}}>
-            Хронологія винаходів
+            Етапи розвитку мультимедіа у ХХ ст.
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -242,6 +242,11 @@ function HeaderComponent(props: HeaderProps) {
     );
   };
 
+  const shownTitle: string = title
+    ? title
+    : props.scene.descriptor.options.title;
+
+  const fontSize: number = (width / shownTitle.length) * 1.4;
   return (
     <View
       style={{
@@ -260,9 +265,9 @@ function HeaderComponent(props: HeaderProps) {
           left: 50,
           alignSelf: 'center',
           color: '#fff',
-          fontSize: aspectRation * 10,
+          fontSize: fontSize > 17 ? 17 : fontSize,
         }}>
-        {title ? title : props.scene.descriptor.options.title}
+        {shownTitle}
       </Text>
       {isLeftMenuOpen === true ? renderLeftMenu() : undefined}
       {isRightMenuOpen === true ? renderRightMenu() : undefined}

@@ -10,7 +10,7 @@ interface CarouselProps {
 const CarouseComponent = (props: CarouselProps) => {
   return (
     <ScrollView
-      style={{flex: 1}}
+      style={{flex: 1, paddingHorizontal: 10}}
       scrollEnabled={true}
       showsHorizontalScrollIndicator={false}
       pagingEnabled={false}

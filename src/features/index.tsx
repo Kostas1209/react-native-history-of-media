@@ -47,9 +47,9 @@ class Root extends React.Component<RootProps> {
               backgroundColor: 'rgb(255, 255, 255)',
               shadowColor: 'transparent',
             },
-            title: 'Хронологія винаходів',
+            title: 'Хронологія винаходів до ХХ ст.',
             headerShown: true,
-            header: (props) => <Header {...props} />,
+            header: (props) => <Header {...props} isBackButton={true} />,
             headerStyle: {backgroundColor: colors.backgroundColor},
           }}
         />
@@ -121,7 +121,7 @@ class Root extends React.Component<RootProps> {
           name="MainPeriodsOfMedia"
           component={MainPeriodsOfMedia}
           options={{
-            title: 'Основні етапи розвитку',
+            title: 'Етапи розвитку мультимедіа у ХХ ст.',
             headerStyle: {backgroundColor: colors.backgroundColor},
             header: (props) => <Header {...props} isBackButton={true} />,
           }}
@@ -138,7 +138,7 @@ class Root extends React.Component<RootProps> {
           name="QuestionList"
           component={QuestionListComponent}
           options={{
-            title: 'Відповіді на запитання гри',
+            title: 'Відповіді на запитання',
             header: (props) => <Header {...props} isBackButton={false} />,
           }}
         />
@@ -146,7 +146,7 @@ class Root extends React.Component<RootProps> {
           name="AnswerScreen"
           component={AnswerScreen}
           options={{
-            title: 'Відповіді на запитання гри',
+            title: 'Відповіді на запитання',
             header: (props) => <Header {...props} isBackButton={true} />,
           }}
         />
